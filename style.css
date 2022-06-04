@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /*display: grid;*/
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  place-items: center;
+  background-color: black;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+/* don't forget to import font family */
+
+/*SCREEN WIZARD*/
+
+section {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: black;
+  margin-top: 200px;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 40%;
+  height: 100%;
+  padding: 20px;
+  box-shadow: 0px 0px 20px #00000020;
+  border-radius: 25px;
+  background-color: #474750;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.step {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.step.active {
+  display: block;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  flex-direction: column;
+}
+
+.spacebetween {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: space-between;
+  /*margin-top: -13%;*/
+}
+
+.form-group {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  /*margin-top: 11%;*/
+}
+
+.form-group_two {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  /*margin-top: 12%;*/
+}
+
+.form-group_bottom_two {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+}
+
+.form-group input {
+  width: 40%;
+  border: 1.5px solid rgba(128, 128, 128, 0.418);
+  padding: 5px;
+  font-size: 18px;
+  /*margin-top: 5px;*/
+  border-radius: 4px;
+}
+
+button.next-btn,
+button.previous-btn,
+button.submit-btn {
+  float: right;
+  /*margin-top: 20px;*/
+  padding: 10px;
+  border: none;
+  outline: none;
+  background-color: #d87741;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  /* text-align: right; */
+}
+button.previous-btn {
+  float: left;
+}
+button.submit-btn {
+  background-color: aquamarine;
+}
+
+/*CONTENT FOR SCREENS*/
+
+#screens,
+#screens_one,
+#screens_two,
+#screens_three,
+#screens_four,
+#screens_five,
+#screens_six {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+#screens_two,
+#screens_three,
+#screens_four,
+#screens_five,
+#screens_six {
+  display: none;
+}
+
+#screens > div {
+  background-color: rgb(71, 71, 80);
+  width: 30%;
+  height: 300px;
+  margin: 20px;
+  border-radius: 30px;
+}
+
+.main_button_styling {
+  background-color: rgb(216, 119, 65);
+  padding: 12px;
+  border: none;
+  text-align: center;
+  color: white;
+  margin: 12px;
+}
+
+.nav_deco {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 2%;
+}
+
+.nav_deco_b {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 8.3%;
+}
+
+.nav_deco_two {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1%;
+}
+
+.nav_deco_two_b {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav_buttons {
+  padding-top: 2%;
+}
+
+.nav_and_title_container_top {
+  /*width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;*/
+  padding-bottom: 7%;
+}
+
+.nav_and_button_container_bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*margin-bottom: -36%;*/
+}
+
+.main_text {
+  height: 100%;
+  width: 100%;
+  font-size: 22px;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+/*!!!!!!!!!!!!!!!!!!!*/
+.user_amount_input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16%;
+  margin-top: 16%;
+  margin-left: 10px;
+}
+
+/*NEW SLIDERS*/
+.sliders {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.slider_value_styling {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6%;
+}
+
+.slider_text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0; /*
+  row-gap: 30%;
+  margin-top: 6%;*/
+}
+
+.slider_text > p {
+  margin-bottom: 10%;
+  margin-top: 11%;
+}
+
+.slider_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 4%;
+}
+
+.rangeslider {
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 3%;
+}
+
+.myslider {
+  -webkit-appearance: none;
+  background: #d87741;
+  width: 100%;
+  height: 10px;
+  border: 1px solid white;
+  opacity: 2;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.myslider:hover {
+  opacity: 1;
+}
+
+.myslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  background: #d87741;
+  width: 3%;
+  height: 45px;
+  border-radius: 5px;
+  border: solid 1px white;
+}
+
+/*TOGGLES*/
+.toggle_one,
+.toggle_two,
+.toggle_three,
+.toggle_four {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.toggle_one_b > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 27%;
+}
+
+.toggle_three_b > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-bottom: 20%;
+}
+
+.toggle_one > div {
+  padding-bottom: 50%;
+}
+
+.toggle_two > div {
+  margin-bottom: 50%;
+  padding-left: 25%;
+}
+
+.toggle_three > div {
+  margin-bottom: 50%;
+}
+
+.toggle_four > div {
+  margin-bottom: 50%;
+  padding-left: 25%;
+}
+
+.toggle_styling {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  padding-top: 8%;
+  padding-bottom: 8%;
+}
+
+.toggle_group_one {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toggle_group_two {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.toggle_container {
+  width: 10px;
+}
+
+/* toggle in label designing */
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 58px;
+  height: 30px;
+  border-radius: 30px;
+  border: 2px solid white;
+}
+
+/* After slide changes */
+.toggle:after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  top: 2px;
+  left: 1px;
+  background-color: white;
+  transition: all 0.5s;
+}
+
+/* Toggle text */
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+/* Checkbox checked effect */
+.checkbox:checked + .toggle::after {
+  left: 30px;
+}
+
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+  background-color: rgb(216, 119, 65);
+}
+
+/* Checkbox vanished */
+.checkbox {
+  display: none;
+}

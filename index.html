@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <form>
+          <!--Screen 1-->
+          <div class="step step-1 active">
+            <div class="spacebetween">
+              <div class="form-group">
+
+                <div>
+                  <p class="main_text">
+                    HOW MUCH DO
+                    <span style="color: rgb(216, 119, 65)">YOU </span>THINK YOUR
+                    PROJECT WILL COST?
+                  </p>
+                  <div class="nav_deco"></div>
+                </div>
+
+
+                <div class="user_amount_input">
+                  <p
+                    style="
+                      color: rgb(216, 119, 65);
+                      font-size: 50px;
+                      padding-right: 10px;
+                    "
+                  >
+                    $
+                  </p>
+                  <label for="firstName"></label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="ENTER YOUR AMOUNT!"
+                  />
+                </div>
+
+
+                <div class="nav_deco_b"></div>
+                <div class="nav_buttons">
+                  <button type="button" class="next-btn">TELL US MORE!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Screen two-->
+          <div class="step step-2">
+            <div class="spacebetween">
+              <div class="form-group_two">
+                <!--Deco line and title-->
+                <div class="nav_and_title_container_top">
+                  <p class="main_text">LET'S TALK ABOUT SCREENS!</p>
+                  <div class="nav_deco_two"></div>
+                </div>
+
+                <div class="slider_container">
+                  <div class="slider_text">
+                    <p>NUMBER OF COMPLEX SCREENS:</p>
+                    <p>NUMBER OF CORE DATA ENTITIES:</p>
+                    <p>NUMBER OF CORE DATA ENTITIES:</p>
+                  </div>
+
+                  <div class="sliders">
+
+                    <div class="rangeslider">
+                      <div class="slider_value_styling">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="10"
+                        value="10"
+                        class="myslider"
+                        id="sliderRange"
+                      />
+                      <p>Value: <span id="demo"></span></p>
+                    </div>
+
+                    <div class="rangeslider">
+                      <div class="slider_value_styling">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="100"
+                        value="10"
+                        class="myslider"
+                        id="sliderRange"
+                      />
+                      <p>Value: <span id="demo"></span></p>
+                    </div>
+
+                    <div class="rangeslider">
+                      <div class="slider_value_styling">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="100"
+                        value="10"
+                        class="myslider"
+                        id="sliderRange"
+                      />
+                      <p>Value: <span id="demo"></span></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group_bottom_two">
+                  <!--<label for="phone" Email>Phone Number</label>
+              <input type="number" id="phone" name="phone-number" />
+            </div>-->
+                  <div class="nav_deco_two_b"></div>
+                  <div class="nav_buttons">
+                    <button type="button" class="previous-btn">PREV</button>
+                    <button type="button" class="next-btn">NEXT</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Screen three-->
+
+          <div class="step step-3">
+            <div class="spacebetween">
+              <div class="form-group_two">
+                <!--Deco line and title-->
+                <div class="nav_and_title_container_top">
+                  <p class="main_text">WHAT ABOUT COMPLIANCE?</p>
+                  <div class="nav_deco_two"></div>
+                </div>
+              </div>
+              <div class="toggle_styling">
+                <div class="toggle_group_one">
+                  <div class="toggle_one">
+                    <div><p>HIPAA:</p></div>
+                    <div style="padding-top: 40%"><p>PCI:</p></div>
+                    <!--<p>OFF    ON</p>-->
+                  </div>
+                  <div class="toggle_two">
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!--second group of toggles-->
+                <div class="toggle_group_two">
+                  <div class="toggle_three">
+                    <div><p>GDPR:</p></div>
+                    <div><p>ADA/WCAG:</p></div>
+                    <!--<p>OFF    ON</p>-->
+                  </div>
+                  <div class="toggle_four">
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group_bottom_two">
+                <!--<label for="phone" Email>Phone Number</label>
+              <input type="number" id="phone" name="phone-number" />
+            </div>-->
+                <div class="nav_deco_two_b"></div>
+                <div class="nav_buttons">
+                  <button type="button" class="previous-btn">PREV</button>
+                  <button type="button" class="next-btn">NEXT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Screen four-->
+          <div class="step step-4">
+            <div class="spacebetween">
+              <div class="form-group_two">
+                <!--Deco line and title-->
+                <div class="nav_and_title_container_top">
+                  <p class="main_text">DON’T FORGET ABOUT MISCELLANEOUS...</p>
+                  <div class="nav_deco_two"></div>
+                </div>
+
+                <div class="slider_container">
+                  <div class="slider_text">
+                    <p>NUMBER OF ROLES:</p>
+                    <p>CALCULATIONS</p>
+                    <p>WORKFLOWS:</p>
+                  </div>
+
+                  <div class="sliders">
+                    <!--<label for="email" Email>Email</label>
+              <input type="email" id="email" name="email" />
+              -->
+
+                    <div class="rangeslider">
+                      <div class="slider_value_styling">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="10"
+                        value="10"
+                        class="myslider"
+                        id="sliderRange"
+                      />
+                      <p>Value: <span id="demo"></span></p>
+                    </div>
+
+                    <div class="rangeslider">
+                      <div class="slider_value_styling">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="100"
+                        value="10"
+                        class="myslider"
+                        id="sliderRange"
+                      />
+                      <p>Value: <span id="demo"></span></p>
+                    </div>
+
+                    <div class="rangeslider">
+                      <div class="slider_value_styling">
+                        <p>1</p>
+                        <p>2</p>
+                        <p>3</p>
+                        <p>4</p>
+                        <p>5</p>
+                        <p>6</p>
+                        <p>7</p>
+                        <p>8</p>
+                        <p>9</p>
+                        <p>10</p>
+                      </div>
+                      <input
+                        type="range"
+                        min="1"
+                        max="100"
+                        value="10"
+                        class="myslider"
+                        id="sliderRange"
+                      />
+                      <p>Value: <span id="demo"></span></p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group_bottom_two">
+                  <!--<label for="phone" Email>Phone Number</label>
+              <input type="number" id="phone" name="phone-number" />
+            </div>-->
+                  <div class="nav_deco_two_b"></div>
+                  <div class="nav_buttons">
+                    <button type="button" class="previous-btn">PREV</button>
+                    <button type="button" class="next-btn">NEXT</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Screen five-->
+
+          <div class="step step-5">
+            <div class="spacebetween">
+              <div class="form-group_two">
+                <!--Deco line and title-->
+                <div class="nav_and_title_container_top">
+                  <p class="main_text">ALMOST THERE! LET’S DISCUSS TYPES:</p>
+                  <div class="nav_deco_two"></div>
+                </div>
+              </div>
+              <div class="toggle_styling">
+                <div class="toggle_group_one">
+                  <div class="toggle_one_b">
+                    <div><p>WEB APP (FRONT END):</p></div>
+                    <div><p>MOBILE APP:</p></div>
+                    <!--<p>OFF    ON</p>-->
+                  </div>
+                  <div class="toggle_two">
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!--second group of toggles-->
+                <div class="toggle_group_two">
+                  <div class="toggle_three_b">
+                    <div><p>CROSS COMPILE ACCEPTABLE:</p></div>
+                    <div><p>iOS/ANDROID:</p></div>
+                    <!--<p>OFF    ON</p>-->
+                  </div>
+                  <div class="toggle_four">
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+
+                    <div>
+                      <input type="checkbox" id="switch" class="checkbox" />
+                      <label for="switch" class="toggle">
+                        <!--<p>OFF    ON</p>-->
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group_bottom_two">
+                <!--<label for="phone" Email>Phone Number</label>
+              <input type="number" id="phone" name="phone-number" />
+            </div>-->
+                <div class="nav_deco_two_b"></div>
+                <div class="nav_buttons">
+                  <button type="button" class="previous-btn">PREV</button>
+                  <button type="button" class="next-btn">NEXT</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- <div class="form-group">
+              <label for="country" Email>Country</label>
+              <input type="text" id="country" name="country" />
+            </div>
+            <div class="form-group">
+              <label for="city" Email>Phone Number</label>
+              <input type="text" id="city" name="city" />
+            </div>
+            <div class="form-group">
+              <label for="postCode" Email>Post Code</label>
+              <input type="text" id="postCode" name="postCode" />
+            </div>
+            <div class="form-group">
+              <label for="phone" Email>Phone Number</label>
+              <input type="number" id="phone" name="phone-number" />
+            </div>-->
+          <!--
+              <div class="nav_deco"></div>
+              <button type="button" class="previous-btn">PREV</button>
+              <button type="button" class="next-btn">NEXT</button>
+            </div>
+
+            <div class="step step-4">
+              <div class="form-group"> -->
+          <!--Deco line and title-->
+
+
+
+          <div class="step step-6">
+            <div class="spacebetween">
+              <div class="form-group_two">
+                <div class="nav_and_title_container_top">
+                  <p class="main_text">LET'S TALK ABOUT SCREENS!</p>
+                  <div class="nav_deco"></div>
+                </div>
+                <div class="form-group">
+                  <label for="country" Email>Country</label>
+                  <input type="text" id="country" name="country" />
+                </div>
+                <div class="form-group">
+                  <label for="city" Email>Phone Number</label>
+                  <input type="text" id="city" name="city" />
+                </div>
+                <div class="form-group">
+                  <label for="postCode" Email>Post Code</label>
+                  <input type="text" id="postCode" name="postCode" />
+                </div>
+                <div class="form-group">
+                  <label for="phone" Email>Phone Number</label>
+                  <input type="number" id="phone" name="phone-number" />
+                </div>
+              </div> 
+              <div class="form-group">
+              <label for="phone" Email>Phone Number</label>
+              <input type="number" id="phone" name="phone-number" />
+            </div>
+              <div class="group">
+                <div class="nav_deco"></div>
+                <button type="button" class="previous-btn">PREV</button>
+                <button type="button" class="next-btn">NEXT</button>
+              </div>
+              </div>
+              </div>
+            </div>
+
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

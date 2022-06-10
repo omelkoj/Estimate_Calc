@@ -38,16 +38,17 @@
                   <label for="firstName"></label>
                   <input
                     type="text"
+                    class="user_input_amount"
                     id="user_input"
                     name="user_input"
                     placeholder="ENTER YOUR AMOUNT!"
                   />
                 </div>
-
+                <div class="spacer">I AM A SPACER DIV</div>
                 <div class="nav_deco_b"></div>
                 <div class="nav_buttons">
                   <button id="b_one" type="button" class="next-btn">
-                    TELL US MORE!
+                    TELL ME MORE!
                   </button>
                 </div>
               </div>
@@ -59,29 +60,45 @@
             <div class="spacebetween">
               <div class="form-group_two">
                 <!--Deco line and title-->
-                <div class="nav_and_title_container_top">
+                <div>
                   <p class="main_text">LET'S TALK ABOUT SCREENS!</p>
                   <div class="nav_deco_two"></div>
                 </div>
 
                 <div class="slider_container">
+                  
                   <div class="slider_text">
+                    <div class="slider_group_one">
+                    <div><p class="info_boxes" style="margin-right: 6px">i</p></div>
+                    <div>
                     <p>
                       BASIC SCREENS:
                       <span style="color: #d87741">(</span>
                       <span id="demoOne"></span>
                       <span style="color: #d87741">)</span>
                     </p>
+                    </div>
+                    </div>
+                    <div class="slider_group_one">
+                    <div><p class="info_boxes" style="margin-right: 6px">i</p></div>
+                    <div>
                     <p>
                       CORE DATA ENTITIES: <span style="color: #d87741">(</span>
                       <span id="demoTwo"></span>
                       <span style="color: #d87741">)</span>
                     </p>
+                    </div>
+                    </div>
+                    <div class="slider_group_one">
+                    <div><p class="info_boxes" style="margin-right: 6px">i</p></div>
+                    <div>
                     <p>
                       COMPLEX SCREENS: <span style="color: #d87741">(</span>
                       <span id="demoThree"></span>
                       <span style="color: #d87741">)</span>
                     </p>
+                    </div>
+                    </div>
                   </div>
 
                   <div class="sliders">
@@ -149,9 +166,6 @@
                 </div>
 
                 <div class="form-group_bottom_two">
-                  <!--<label for="phone" Email>Phone Number</label>
-              <input type="number" id="phone" name="phone-number" />
-            </div>-->
                   <div class="nav_deco_two_b"></div>
                   <div class="nav_buttons">
                     <button id="b_two_a" type="button" class="previous-btn">
@@ -173,7 +187,7 @@
                 <!--Deco line and title-->
                 <div class="nav_and_title_container_top">
                   <p class="main_text">WHAT ABOUT COMPLIANCE?</p>
-                  <div class="nav_deco_two"></div>
+                  <div class="nav_deco_two_c"></div>
                   <div class="running_total_display">
                     <p
                       style="
@@ -188,21 +202,48 @@
                   </div>
                 </div>
               </div>
+
+              <div class="spacer">I AM A SPACER DIV</div>
+              <div class="spacer">I AM A SPACER DIV</div>
+              <div class="spacer">I AM A SPACER DIV</div>
+              <div class="spacer">I AM A SPACER DIV</div>
+
               <div class="toggle_styling">
                 <div class="toggle_group_one">
                   <div class="toggle_one">
-                    <div><p>HIPAA:</p></div>
-                    <div style="padding-top: 40%"><p>PCI:</p></div>
-                    <!--<p>OFF    ON</p>-->
+                    <div>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
+                    </div>
+                    <div style="padding-bottom: 70%"><p>HIPAA:</p></div>
                   </div>
                   <div class="toggle_two">
                     <div>
-                      <input type="checkbox" id="switch_one" class="checkbox" />
-                      <label for="switch_one" class="toggle">
-                        <!--<p>OFF    ON</p>-->
-                      </label>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
                     </div>
+                    <div><p>PCI:</p></div>
+                  </div>
+                </div>
 
+                <div class="toggle_group_one">
+                  <div class="toggle_one">
+                    <div>
+                      <div style="padding-bottom: 50%">
+                        <input
+                          type="checkbox"
+                          id="switch_one"
+                          class="checkbox"
+                        />
+                        <label for="switch_one" class="toggle">
+                          <!--<p>OFF    ON</p>-->
+                        </label>
+                      </div>
+                      
+                      <!--<p>OFF    ON</p>-->
+                    </div>
+                    
+                  </div>
+
+                  <div class="toggle_two">
                     <div>
                       <input type="checkbox" id="switch_two" class="checkbox" />
                       <label for="switch_two" class="toggle">
@@ -211,25 +252,42 @@
                     </div>
                   </div>
                 </div>
-                <!--second group of toggles-->
-                <div class="toggle_group_two">
-                  <div class="toggle_three">
-                    <div><p>GDPR:</p></div>
-                    <div><p>ADA/WCAG:</p></div>
-                    <!--<p>OFF    ON</p>-->
-                  </div>
-                  <div class="toggle_four">
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="switch_three"
-                        class="checkbox"
-                      />
-                      <label for="switch_three" class="toggle">
-                        <!--<p>OFF    ON</p>-->
-                      </label>
-                    </div>
 
+                <!--second group of toggles-->
+                <div class="toggle_group_one">
+                  <div class="toggle_one">
+                    <div>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
+                    </div>
+                    <div style="padding-bottom: 70%"><p>GDPR:</p></div>
+                  </div>
+                  <div class="toggle_two">
+                    <div>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
+                    </div>
+                    <div><p>ADA/WCAG:</p></div>
+                  </div>
+                </div>
+
+                <div class="toggle_group_one">
+                  <div class="toggle_one">
+                    <div>
+                      <div style="padding-bottom: 50%">
+                        <input
+                          type="checkbox"
+                          id="switch_three"
+                          class="checkbox"
+                        />
+                        <label for="switch_three" class="toggle">
+                          <!--<p>OFF    ON</p>-->
+                        </label>
+                      </div>
+
+                      <!--<p>OFF    ON</p>-->
+                    </div>
+                  </div>
+
+                  <div class="toggle_two">
                     <div>
                       <input
                         type="checkbox"
@@ -244,10 +302,12 @@
                 </div>
               </div>
 
+              <div class="spacer">I AM A SPACER DIV</div>
+              <div class="spacer">I AM A SPACER DIV</div>
+              <div class="spacer">I AM A SPACER DIV</div>
+              <div class="spacer">I AM A SPACER DIV</div>
+
               <div class="form-group_bottom_two">
-                <!--<label for="phone" Email>Phone Number</label>
-              <input type="number" id="phone" name="phone-number" />
-            </div>-->
                 <div class="nav_deco_two_b"></div>
                 <div class="nav_buttons">
                   <button id="b_three_a" type="button" class="previous-btn">
@@ -285,18 +345,30 @@
 
                 <div class="slider_container">
                   <div class="slider_text">
-                    <p>ROLES:</p>
-                    <p>CALCULATIONS</p>
-                    <p>WORKFLOWS:</p>
+                    <p>
+                      ROLES:
+                      <span style="color: #d87741">(</span>
+                      <span id="demoFour"></span>
+                      <span style="color: #d87741">)</span>
+                    </p>
+                    <p>
+                      CALCULATIONS:
+                      <span style="color: #d87741">(</span>
+                      <span id="demoFive"></span>
+                      <span style="color: #d87741">)</span>
+                    </p>
+                    <p>
+                      WORKFLOWS:
+                      <span style="color: #d87741">(</span>
+                      <span id="demoSix"></span>
+                      <span style="color: #d87741">)</span>
+                    </p>
                   </div>
 
                   <div class="sliders">
-                    <!--<label for="email" Email>Email</label>
-              <input type="email" id="email" name="email" />
-              -->
-
                     <div class="rangeslider">
                       <div class="slider_value_styling">
+                        <p>0</p>
                         <p>1</p>
                         <p>2</p>
                         <p>3</p>
@@ -306,7 +378,7 @@
                         <p>7</p>
                         <p>8</p>
                         <p>9</p>
-                        <p>10</p>
+                        <p style="margin-left: -7px">10</p>
                       </div>
                       <input
                         type="range"
@@ -316,11 +388,12 @@
                         class="myslider"
                         id="sliderRangeFour"
                       />
-                      <p>Value: <span id="demoFour"></span></p>
+                      <p style="visibility: hidden">i</p>
                     </div>
 
                     <div class="rangeslider">
                       <div class="slider_value_styling">
+                        <p>0</p>
                         <p>1</p>
                         <p>2</p>
                         <p>3</p>
@@ -330,7 +403,7 @@
                         <p>7</p>
                         <p>8</p>
                         <p>9</p>
-                        <p>10</p>
+                        <p style="margin-left: -7px">10</p>
                       </div>
                       <input
                         type="range"
@@ -340,11 +413,12 @@
                         class="myslider"
                         id="sliderRangeFive"
                       />
-                      <p>Value: <span id="demoFive"></span></p>
+                      <p style="visibility: hidden">i</p>
                     </div>
 
                     <div class="rangeslider">
                       <div class="slider_value_styling">
+                        <p>0</p>
                         <p>1</p>
                         <p>2</p>
                         <p>3</p>
@@ -354,7 +428,7 @@
                         <p>7</p>
                         <p>8</p>
                         <p>9</p>
-                        <p>10</p>
+                        <p style="margin-left: -7px">10</p>
                       </div>
                       <input
                         type="range"
@@ -364,15 +438,12 @@
                         class="myslider"
                         id="sliderRangeSix"
                       />
-                      <p>Value: <span id="demoSix"></span></p>
+                      <p style="visibility: hidden">i</p>
                     </div>
                   </div>
                 </div>
 
                 <div class="form-group_bottom_two">
-                  <!--<label for="phone" Email>Phone Number</label>
-              <input type="number" id="phone" name="phone-number" />
-            </div>-->
                   <div class="nav_deco_two_b"></div>
                   <div class="nav_buttons">
                     <button id="b_four_a" type="button" class="previous-btn">
@@ -395,27 +466,56 @@
                 <div class="nav_and_title_container_top">
                   <p class="main_text">ALMOST THERE! LET’S DISCUSS TYPES:</p>
                   <div class="nav_deco_two"></div>
+                  <div class="running_total_display">
+                    <p
+                      style="
+                        color: rgb(216, 119, 65);
+                        font-size: 20px;
+                        padding-right: 1%;
+                      "
+                    >
+                      $
+                    </p>
+                    <p id="screen_five_running_total">23,000</p>
+                  </div>
                 </div>
               </div>
+
               <div class="toggle_styling">
                 <div class="toggle_group_one">
-                  <div class="toggle_one_b">
-                    <div><p>WEB APP (FRONT END):</p></div>
-                    <div><p>MOBILE APP:</p></div>
-                    <!--<p>OFF    ON</p>-->
+                  <div class="toggle_one">
+                    <div>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
+                    </div>
+                    <div style="padding-bottom: 45%"><p>WEB APP:</p></div>
                   </div>
                   <div class="toggle_two">
                     <div>
-                      <input
-                        type="checkbox"
-                        id="switch_five"
-                        class="checkbox"
-                      />
-                      <label for="switch_five" class="toggle">
-                        <!--<p>OFF    ON</p>-->
-                      </label>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
                     </div>
+                    <div><p>MOBILE APP:</p></div>
+                  </div>
+                </div>
 
+                <div class="toggle_group_one">
+                  <div class="toggle_one">
+                    <div>
+                      <div style="padding-bottom: 50%">
+                        <input
+                          type="checkbox"
+                          id="switch_five"
+                          class="checkbox"
+                        />
+                        <label for="switch_five" class="toggle">
+                          <!--<p>OFF    ON</p>-->
+                        </label>
+                      </div>
+
+                      <!--<p>OFF    ON</p>-->
+                    </div>
+                  </div>
+
+                  <div class="toggle_two">
                     <div>
                       <input type="checkbox" id="switch_six" class="checkbox" />
                       <label for="switch_six" class="toggle">
@@ -424,25 +524,42 @@
                     </div>
                   </div>
                 </div>
-                <!--second group of toggles-->
-                <div class="toggle_group_two">
-                  <div class="toggle_three">
-                    <div><p>GDPR:</p></div>
-                    <div><p>ADA/WCAG:</p></div>
-                    <!--<p>OFF    ON</p>-->
-                  </div>
-                  <div class="toggle_four">
-                    <div>
-                      <input
-                        type="checkbox"
-                        id="switch_seven"
-                        class="checkbox"
-                      />
-                      <label for="switch_seven" class="toggle">
-                        <!--<p>OFF    ON</p>-->
-                      </label>
-                    </div>
 
+                <!--second group of toggles-->
+                <div class="toggle_group_one">
+                  <div class="toggle_one">
+                    <div>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
+                    </div>
+                    <div style="padding-bottom: 85%"><p>iOS:</p></div>
+                  </div>
+                  <div class="toggle_two">
+                    <div>
+                      <p class="info_boxes" style="margin-right: 6px">i</p>
+                    </div>
+                    <div><p>ANDROID:</p></div>
+                  </div>
+                </div>
+
+                <div class="toggle_group_one">
+                  <div class="toggle_one">
+                    <div>
+                      <div style="padding-bottom: 50%">
+                        <input
+                          type="checkbox"
+                          id="switch_seven"
+                          class="checkbox"
+                        />
+                        <label for="switch_seven" class="toggle">
+                          <!--<p>OFF    ON</p>-->
+                        </label>
+                      </div>
+
+                      <!--<p>OFF    ON</p>-->
+                    </div>
+                  </div>
+
+                  <div class="toggle_two">
                     <div>
                       <input
                         type="checkbox"
@@ -458,9 +575,6 @@
               </div>
 
               <div class="form-group_bottom_two">
-                <!--<label for="phone" Email>Phone Number</label>
-              <input type="number" id="phone" name="phone-number" />
-            </div>-->
                 <div class="nav_deco_two_b"></div>
                 <div class="nav_buttons">
                   <button id="b_five_a" type="button" class="previous-btn">
@@ -483,13 +597,13 @@
                   <div class="nav_deco_five"></div>
                 </div>
                 <p class="your_estimate_p">
-                  <span style="color: rgb(216, 119, 65)">YOUR </span>ESTIMATE
+                  <span style="color: rgb(216, 119, 65)">YOUR  </span>ESTIMATE
                 </p>
                 <div class="form-group">
                   <div id="your_estimate_styling"><p>25,000</p></div>
                 </div>
                 <p class="our_estimate_p">
-                  <span style="color: rgb(216, 119, 65)">OUR </span>ESTIMATE
+                  <span style="color: rgb(216, 119, 65)">OUR  </span>ESTIMATE
                 </p>
                 <div class="form-group">
                   <div id="our_estimate_styling"><p>25,000</p></div>
@@ -501,6 +615,7 @@
                   <span style="color: rgb(216, 119, 65)">YOUR STORY </span>COME
                   TO LIFE!
                 </p>
+                <!--
                 <div class="form-group">
                   <label for="email" Email></label>
                   <input
@@ -524,11 +639,12 @@
                 <label for="name" Email></label>
                 <input type="text" id="name" name="name" placeholder="NAME" />
               </div>
+            -->
 
               <div class="group">
                 <div class="nav_deco"></div>
                 <button id="b_six_a" type="button" class="previous-btn">
-                  SUBMIT
+                  PREV
                 </button>
               </div>
             </div>

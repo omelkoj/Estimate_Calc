@@ -1,13 +1,22 @@
 //Prev, etc. figure out
 //Clean up CSS/Styling
+//General Code Cleanup
 //Do info buttons
-//Display innerHTML in various places
-//Leave out email
-//user input comma situation
-//Round to the nearest number (estimate result)
-//Change slider default to lowest number
-//Increase slider range to 50 - change start to 0!
-//create a range for final result
+//Round to the nearest number/hundred (estimate result)
+//round running total updates
+//maybe make font size smaller?
+//double check all math
+
+
+//AUTO INPUT COMMAS INTO USER-ENTERED ESTIMATE AMOUNT
+var el = document.querySelector("input.user_input_amount");
+el.addEventListener("keyup", function (event) {
+  if (event.which >= 37 && event.which <= 40) return;
+
+  this.value = this.value
+    .replace(/\D/g, "")
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+});
 
 //SLIDERS, INSTANCE 1
 //SLIDER 1
@@ -94,12 +103,15 @@ nextBtn.forEach((button) => {
     if (button.id == "b_one") {
       console.log("it worked");
       //This is where the user amount is stored
-      userAmount += parseInt(document.getElementById("user_input").value);
+      //parseInt(str.replace(/,/g, ""), 10);
+
+      //userAmount += parseInt(document.getElementById("user_input").value);
+      userAmount = document.getElementById("user_input").value;
       console.log(userAmount + "this is the user amount");
 
       /**/ //runningTotal += parseInt(document.getElementById("firstName").value);
       //console.log(runningTotal);
-      console.log(parseInt(document.getElementById("user_input").value));
+      //console.log(parseInt(document.getElementById("user_input").value));
     } else if (button.id == "b_two_b") {
       /**/ addedAmount = pageTwoMath(
         rangesliderOne.value,
@@ -110,7 +122,7 @@ nextBtn.forEach((button) => {
       let runningTotalScreenThree = document.getElementById(
         "screen_three_running_total"
       );
-      runningTotalScreenThree.innerHTML = runningTotal;
+      runningTotalScreenThree.innerHTML = runningTotal.toLocaleString("en-US");
 
       console.log(rangesliderOne.value);
       console.log(rangesliderTwo.value);
@@ -177,7 +189,7 @@ nextBtn.forEach((button) => {
       let runningTotalScreenFour = document.getElementById(
         "screen_four_running_total"
       );
-      runningTotalScreenFour.innerHTML = runningTotal;
+      runningTotalScreenFour.innerHTML = runningTotal.toLocaleString("en-US");
     } else if (button.id == "b_four_b") {
       //MATH???
       totalSliderAmountTwo = pageFourMath(
@@ -186,44 +198,58 @@ nextBtn.forEach((button) => {
         rangesliderSix.value
       );
       console.log(runningTotal, "this is the runningTotal NEWESTTT");
+
+      let runningTotalScreenFive = document.getElementById(
+        "screen_five_running_total"
+      );
+      runningTotalScreenFive.innerHTML = runningTotal.toLocaleString("en-US");
     } else if (button.id == "b_five_b") {
-      var isChecked_Five = document.getElementById("switch_five").checked;
+      var isChecked_Five = document.getElementById("switch_five");
       console.log(isChecked_Five);
 
-      var isChecked_Six = document.getElementById("switch_six").checked;
+      var isChecked_Six = document.getElementById("switch_six");
       console.log(isChecked_Six);
 
-      var isChecked_Seven = document.getElementById("switch_seven").checked;
+      var isChecked_Seven = document.getElementById("switch_seven");
       console.log(isChecked_Seven);
 
-      var isChecked_Eight = document.getElementById("switch_eight").checked;
+      var isChecked_Eight = document.getElementById("switch_eight");
       console.log(isChecked_Eight);
 
-      if (isChecked_Five == false) {
-        isChecked_Five = -10000;
-      } else if (isChecked_Five == true) {
-        isChecked_Five = 0;
-      } else if (isChecked_Six == false) {
-        isChecked_Six = -10000;
-      } else if (isChecked_Six == true) {
-        isChecked_Six = 0;
-      } else if (isChecked_Seven == false) {
-        isChecked_Seven = 0;
-      } else if (isChecked_Seven == true) {
-        isChecked_Seven = 0;
-      } else if (isChecked_Eight == false) {
-        isChecked_Eight = -8000;
-      } else if (isChecked_Eight == true) {
-        isChecked_Eight = 0;
+      let isChecked_Five_Amount = 0;
+      let isChecked_Six_Amount = 0;
+      let isChecked_Seven_Amount = 0;
+      let isChecked_Eight_Amount = 0;
+
+      if (isChecked_Five.checked == false) {
+        isChecked_Five_Amount = -10000;
       } else {
-        console.log("DIS TOGGLE STATEMENT NO WORK");
+        isChecked_Five_Amount = runningTotal;
+      }
+
+      if (isChecked_Six.checked == false) {
+        isChecked_Six_Amount = -10000;
+      } else {
+        isChecked_Six_Amount = runningTotal;
+      }
+
+      if (isChecked_Seven.checked == false) {
+        isChecked_Seven_Amount = 0;
+      } else {
+        isChecked_Seven_Amount = runningTotal;
+      }
+
+      if (isChecked_Eight.checked == false) {
+        isChecked_Eight_Amount = 0;
+      } else {
+        isChecked_Eight_Amount = runningTotal;
       }
 
       totalToggleAmount = pageFiveMath(
-        isChecked_Five,
-        isChecked_Six,
-        isChecked_Seven,
-        isChecked_Eight
+        isChecked_Five_Amount,
+        isChecked_Six_Amount,
+        isChecked_Seven_Amount,
+        isChecked_Eight_Amount
       );
       console.log(runningTotal, "this is the runningTotal NEWWWWW");
       let finalYourEstimate = document.getElementById("your_estimate_styling");
@@ -300,17 +326,21 @@ function pageThreeMath(hipaa, pci, gdpr, ada) {
   return runningTotal;
 }
 
-function pageFourMath(numberRoles, calcs, workflows) {
-  let pageFourTotal = numberRoles * 0.04 + calcs * 0.06 + workflows * 0.12;
+/*FIX THIS MATH!!!*/
+function pageFourMath(roles, calcs, workflows) {
+  let pageFourTotal =
+    runningTotal * 0.04 * roles +
+    runningTotal * 0.06 * calcs +
+    runningTotal * 0.12 * workflows;
 
   runningTotal += pageFourTotal;
 
   return runningTotal;
 }
 
-function pageFiveMath(webApp, mobileApp, crossCompile, iosAndroid) {
+function pageFiveMath(webApp, mobileApp, ios, android) {
   let pageFiveTotal =
-    webApp + 10000 + mobileApp * 10000 + crossCompile + iosAndroid + 8000;
+    webApp + 10000 + mobileApp + 10000 + ios * 0.08 + android * 0.08;
 
   runningTotal += pageFiveTotal;
 

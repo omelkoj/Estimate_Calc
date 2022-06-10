@@ -7,7 +7,6 @@
 //maybe make font size smaller?
 //double check all math
 
-
 //AUTO INPUT COMMAS INTO USER-ENTERED ESTIMATE AMOUNT
 var el = document.querySelector("input.user_input_amount");
 el.addEventListener("keyup", function (event) {
@@ -395,29 +394,21 @@ console.log(isChecked);
 var isChecked = document.getElementById("switch_four").checked;
 console.log(isChecked);
 
-/*INDEX 2*/
+/*SHOW/HIDE OVERLAY TEXT*/
 
-/*const multiStepForm = document.querySelector("[data-multi-step]");
-const formSteps = [...multiStepForm.querySelectorAll("[data-step]")];
-let currentStep = formSteps.findIndex((step) => {
-  step.classList.contains("active");
+const infoOne = document.getElementById("info_one");
+
+const overlayText = document.getElementById("text_overlay_text_one");
+
+infoOne.addEventListener("mouseenter", function handleMouseOut() {
+  // 👇️ if you used visibility property to hide div
+  overlayText.style.visibility = "hidden";
 });
 
-console.log(currentStep);
+// ✅ Show hidden DIV on hover
+infoOne.addEventListener("mouseover", function handleMouseOver() {
+  overlayText.style.display = "block";
 
-if (currentStep < 0) {
-  currentStep = 0;
-  formSteps[currentStep].classList.add("active");
-}
-
-multiStepForm.addEventListener("click", (e) => {
-  if (e.target.matches("[data-next]")) {
-    currentStep += 1;
-  } else if (e.target.matches("[data-previous]")) {
-    currentStep -= 1;
-  }
+  // 👇️ if you used visibility property to hide div
+  // hiddenDiv.style.visibility = 'visible';
 });
-
-function showCurrentStep() {
-  formSteps[currentStep].classList.add("active");
-}*/

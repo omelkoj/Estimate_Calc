@@ -93,6 +93,19 @@ const form = document.querySelector("form");
 let userAmount = 0;
 let runningTotal = 0;
 let addedAmount = 0;
+let totalToggleAmount = 0;
+let totalSliderAmountTwo = 0;
+let totalToggleAmountTwo = 0;
+
+let subtractAmount = 0;
+let subtractToggleAmount = 0;
+let subtractSliderAmountTwo = 0;
+let subtractToggleAmountTwo = 0;
+
+let pageTwoTotal = 0;
+let pageThreeTotal = 0;
+let pageFourTotal = 0;
+let pageFiveTotal = 0;
 
 console.log(steps[0]);
 console.log(steps);
@@ -112,7 +125,7 @@ nextBtn.forEach((button) => {
       //console.log(runningTotal);
       //console.log(parseInt(document.getElementById("user_input").value));
     } else if (button.id == "b_two_b") {
-      /**/ addedAmount = pageTwoMath(
+      addedAmount = pageTwoMath(
         rangesliderOne.value,
         rangesliderTwo.value,
         rangesliderThree.value
@@ -127,7 +140,7 @@ nextBtn.forEach((button) => {
       console.log(rangesliderTwo.value);
       console.log(rangesliderThree.value);
       console.log(runningTotal);
-      console.log(addedAmount);
+      console.log("THIS IS THE addedAmount" + addedAmount);
       console.log(runningTotal, "this is the runningTotal NEW");
     } else if (button.id == "b_three_b") {
       let isChecked_One = document.getElementById("switch_one");
@@ -184,6 +197,8 @@ nextBtn.forEach((button) => {
         isChecked_Three_Amount,
         isChecked_Four_Amount
       );
+
+      console.log("THIS IS THE totalToggleAmount" + totalToggleAmount);
       console.log(runningTotal, "this is the runningTotal NEWWWWW");
       let runningTotalScreenFour = document.getElementById(
         "screen_four_running_total"
@@ -196,6 +211,8 @@ nextBtn.forEach((button) => {
         rangesliderFive.value,
         rangesliderSix.value
       );
+
+      console.log("THIS IS THE totalSliderAmountTwo" + totalSliderAmountTwo);
       console.log(runningTotal, "this is the runningTotal NEWESTTT");
 
       let runningTotalScreenFive = document.getElementById(
@@ -244,12 +261,14 @@ nextBtn.forEach((button) => {
         isChecked_Eight_Amount = runningTotal;
       }
 
-      totalToggleAmount = pageFiveMath(
+      totalToggleAmountTwo = pageFiveMath(
         isChecked_Five_Amount,
         isChecked_Six_Amount,
         isChecked_Seven_Amount,
         isChecked_Eight_Amount
       );
+
+      console.log("THIS IS THE totalToggleAmountTwo" + totalToggleAmountTwo);
       console.log(runningTotal, "this is the runningTotal NEWWWWW");
       let finalYourEstimate = document.getElementById("your_estimate_styling");
       finalYourEstimate.innerHTML = userAmount;
@@ -267,10 +286,23 @@ nextBtn.forEach((button) => {
   });
 });
 
+console.log(addedAmount);
+console.log(totalToggleAmount);
+console.log(totalSliderAmountTwo);
+console.log(totalToggleAmountTwo);
+
 prevBtn.forEach((button) => {
   button.addEventListener("click", () => {
+    if (button.id == "b_three_a") {
+      subtractAmount = pageTwoMathSubtract(addedAmount);
+    } else if (button.id == "b_four_a") {
+      subtractToggleAmount = pageThreeMathSubtract(pageThreeTotal);
+    } else if (button.id == "b_five_a") {
+      subtractSliderAmountTwo = pageFourMathSubtract(pageFourTotal);
+    } else if (button.id == "b_six_a") {
+      subtractToggleAmountTwo = pageFiveMathSubtract(pageFiveTotal);
+    }
     changesStep("previous");
-
     /*if true then remove addedAmount*/
   });
 });
@@ -309,7 +341,7 @@ function changesStep(btn) {
 /*FUNCTIONS FOR RUNNING TOTAL*/
 
 function pageTwoMath(basicScreens, dataEntities, complexScreens) {
-  let pageTwoTotal =
+  pageTwoTotal =
     basicScreens * 800 + dataEntities * 1000 + complexScreens * 5000;
 
   runningTotal += pageTwoTotal;
@@ -317,8 +349,7 @@ function pageTwoMath(basicScreens, dataEntities, complexScreens) {
 }
 
 function pageThreeMath(hipaa, pci, gdpr, ada) {
-  let pageThreeTotal =
-    hipaa * 0.08 + (pci + 10000) + (gdpr + 3000) + ada * 0.08;
+  pageThreeTotal = hipaa * 0.08 + (pci + 10000) + (gdpr + 3000) + ada * 0.08;
 
   runningTotal += pageThreeTotal;
 
@@ -327,7 +358,7 @@ function pageThreeMath(hipaa, pci, gdpr, ada) {
 
 /*FIX THIS MATH!!!*/
 function pageFourMath(roles, calcs, workflows) {
-  let pageFourTotal =
+  pageFourTotal =
     runningTotal * 0.04 * roles +
     runningTotal * 0.06 * calcs +
     runningTotal * 0.12 * workflows;
@@ -338,11 +369,41 @@ function pageFourMath(roles, calcs, workflows) {
 }
 
 function pageFiveMath(webApp, mobileApp, ios, android) {
-  let pageFiveTotal =
+  pageFiveTotal =
     webApp + 10000 + mobileApp + 10000 + ios * 0.08 + android * 0.08;
 
   runningTotal += pageFiveTotal;
 
+  return runningTotal;
+}
+
+/*PREVIOUS SCREEN SUBTRACTION FUNCTIONS*/
+
+function pageTwoMathSubtract(amountOne) {
+  let pageTwoTotalSubtract = amountOne;
+
+  runningTotal -= pageTwoTotalSubtract;
+  return runningTotal;
+}
+
+function pageThreeMathSubtract(amountTwo) {
+  let pageThreeTotalSubtract = amountTwo;
+
+  runningTotal -= pageThreeTotalSubtract;
+  return runningTotal;
+}
+
+function pageFourMathSubtract(amountThree) {
+  let pageFourTotalSubtract = amountThree;
+
+  runningTotal -= pageFourTotalSubtract;
+  return runningTotal;
+}
+
+function pageFiveMathSubtract(amountFour) {
+  let pageFiveTotalSubtract = amountFour;
+
+  runningTotal -= pageFiveTotalSubtract;
   return runningTotal;
 }
 
@@ -394,21 +455,169 @@ console.log(isChecked);
 var isChecked = document.getElementById("switch_four").checked;
 console.log(isChecked);
 
-/*SHOW/HIDE OVERLAY TEXT*/
+/*SHOW/HIDE OVERLAY TEXT FUNCTIONS*/
+/*screen two overlay functions*/
 
 const infoOne = document.getElementById("info_one");
+const overlayTextOne = document.getElementById("text_overlay_text_one");
 
-const overlayText = document.getElementById("text_overlay_text_one");
+const infoTwo = document.getElementById("info_two");
+const overlayTextTwo = document.getElementById("text_overlay_text_two");
 
-infoOne.addEventListener("mouseenter", function handleMouseOut() {
-  // 👇️ if you used visibility property to hide div
-  overlayText.style.visibility = "hidden";
+const infoThree = document.getElementById("info_three");
+const overlayTextThree = document.getElementById("text_overlay_text_three");
+
+infoOne.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextOne.style.display = "block";
 });
 
-// ✅ Show hidden DIV on hover
-infoOne.addEventListener("mouseover", function handleMouseOver() {
-  overlayText.style.display = "block";
+infoOne.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextOne.style.display = "none";
+});
 
-  // 👇️ if you used visibility property to hide div
-  // hiddenDiv.style.visibility = 'visible';
+infoTwo.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextTwo.style.display = "block";
+});
+
+infoTwo.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextTwo.style.display = "none";
+});
+
+infoThree.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextThree.style.display = "block";
+});
+
+infoThree.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextThree.style.display = "none";
+});
+
+/*screen three overlay functions*/
+
+const infoFour = document.getElementById("info_four");
+const overlayTextFour = document.getElementById("text_overlay_text_four");
+
+const infoFive = document.getElementById("info_five");
+const overlayTextFive = document.getElementById("text_overlay_text_five");
+
+const infoSix = document.getElementById("info_six");
+const overlayTextSix = document.getElementById("text_overlay_text_six");
+
+const infoSeven = document.getElementById("info_seven");
+const overlayTextSeven = document.getElementById("text_overlay_text_seven");
+
+infoFour.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextFour.style.display = "block";
+});
+
+infoFour.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextFour.style.display = "none";
+});
+
+infoFive.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextFive.style.display = "block";
+});
+
+infoFive.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextFive.style.display = "none";
+});
+
+infoSix.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextSix.style.display = "block";
+});
+
+infoSix.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextSix.style.display = "none";
+});
+
+infoSeven.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextSeven.style.display = "block";
+});
+
+infoSeven.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextSeven.style.display = "none";
+});
+
+/*screen four overlay functions*/
+
+const infoEight = document.getElementById("info_eight");
+const overlayTextEight = document.getElementById("text_overlay_text_eight");
+
+const infoNine = document.getElementById("info_nine");
+const overlayTextNine = document.getElementById("text_overlay_text_nine");
+
+const infoTen = document.getElementById("info_ten");
+const overlayTextTen = document.getElementById("text_overlay_text_ten");
+
+infoEight.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextEight.style.display = "block";
+});
+
+infoEight.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextEight.style.display = "none";
+});
+
+infoNine.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextNine.style.display = "block";
+});
+
+infoNine.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextNine.style.display = "none";
+});
+
+infoTen.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextTen.style.display = "block";
+});
+
+infoTen.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextTen.style.display = "none";
+});
+
+/*screen five overlay functions*/
+
+const infoEleven = document.getElementById("info_eleven");
+const overlayTextEleven = document.getElementById("text_overlay_text_eleven");
+
+const infoTwelve = document.getElementById("info_twelve");
+const overlayTextTwelve = document.getElementById("text_overlay_text_twelve");
+
+const infoThirteen = document.getElementById("info_thirteen");
+const overlayTextThirteen = document.getElementById(
+  "text_overlay_text_thirteen"
+);
+
+const infoFourteen = document.getElementById("info_fourteen");
+const overlayTextFourteen = document.getElementById(
+  "text_overlay_text_fourteen"
+);
+
+infoEleven.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextEleven.style.display = "block";
+});
+
+infoEleven.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextEleven.style.display = "none";
+});
+
+infoTwelve.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextTwelve.style.display = "block";
+});
+
+infoTwelve.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextTwelve.style.display = "none";
+});
+
+infoThirteen.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextThirteen.style.display = "block";
+});
+
+infoThirteen.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextThirteen.style.display = "none";
+});
+
+infoFourteen.addEventListener("mouseover", function handleMouseOver() {
+  overlayTextFourteen.style.display = "block";
+});
+
+infoFourteen.addEventListener("mouseout", function handleMouseOut() {
+  overlayTextFourteen.style.display = "none";
 });

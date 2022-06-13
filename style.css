@@ -138,7 +138,7 @@ form {
   justify-content: center;
   flex-direction: column;
   align-content: center;
-  padding-top: 10%;
+  padding-top: 7%;
 }
 
 .form-group input {
@@ -254,6 +254,10 @@ button.submit-btn {
   padding-top: 0.9%;
 }
 
+#b_six_a {
+  margin-top: 2%;
+}
+
 .nav_buttons {
   padding-top: 2%;
 }
@@ -270,12 +274,15 @@ button.submit-btn {
   z-index: 99;
 }
 
+/*screen two text overlays*/
+
 .text_overlay_one {
   margin-top: 25px;
   position: fixed;
   background-color: white;
   padding: 10px;
   color: black;
+  z-index: 99;
   display: none;
 }
 
@@ -285,6 +292,8 @@ button.submit-btn {
   background-color: white;
   padding: 10px;
   color: black;
+  z-index: 99;
+  display: none;
 }
 
 .text_overlay_three {
@@ -293,6 +302,122 @@ button.submit-btn {
   background-color: white;
   padding: 10px;
   color: black;
+  z-index: 99;
+  display: none;
+}
+
+/*screen three text overlays*/
+.text_overlay_four {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_five {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_six {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_seven {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+/*screen four text overlays*/
+
+.text_overlay_eight {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_nine {
+  margin-top: 110px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_ten {
+  margin-top: 190px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+/*screen five text overlays*/
+.text_overlay_eleven {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_twelve {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_thirteen {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
+}
+
+.text_overlay_fourteen {
+  margin-top: 30px;
+  position: fixed;
+  background-color: white;
+  padding: 10px;
+  color: black;
+  z-index: 99;
+  display: none;
 }
 
 .nav_and_title_container_top_two {
@@ -593,11 +718,11 @@ p {
 
 .our_estimate_p {
   margin: 2%;
-  margin-top: -7%;
+  margin-top: -5%;
 }
 
 .closing_text {
-  margin-top: -10%;
+  margin-top: -8%;
 }
 
 /*RUNNING TOTAL STYLING*/

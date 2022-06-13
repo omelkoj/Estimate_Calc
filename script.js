@@ -1,12 +1,3 @@
-//Prev, etc. figure out
-//Clean up CSS/Styling
-//General Code Cleanup
-//Do info buttons
-//Round to the nearest number/hundred (estimate result)
-//round running total updates
-//maybe make font size smaller?
-//double check all math
-
 //AUTO INPUT COMMAS INTO USER-ENTERED ESTIMATE AMOUNT
 var el = document.querySelector("input.user_input_amount");
 el.addEventListener("keyup", function (event) {
@@ -17,7 +8,8 @@ el.addEventListener("keyup", function (event) {
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 });
 
-//SLIDERS, INSTANCE 1
+//SLIDERS
+
 //SLIDER 1
 const rangesliderOne = document.getElementById("sliderRangeOne");
 const outputOne = document.getElementById("demoOne");
@@ -84,12 +76,12 @@ rangesliderSix.oninput = function () {
 
 console.log(rangesliderSix.value);
 
-//JS FOR WIZARD
-
+//WIZARD FUNCTIONALITY/FUNCTIONS FOR CALCULATIONS
 const steps = Array.from(document.querySelectorAll("form .step"));
 const nextBtn = document.querySelectorAll("form .next-btn");
 const prevBtn = document.querySelectorAll("form .previous-btn");
 const form = document.querySelector("form");
+
 let userAmount = 0;
 let runningTotal = 0;
 let addedAmount = 0;
@@ -114,16 +106,9 @@ nextBtn.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.id == "b_one") {
       console.log("it worked");
-      //This is where the user amount is stored
-      //parseInt(str.replace(/,/g, ""), 10);
 
-      //userAmount += parseInt(document.getElementById("user_input").value);
       userAmount = document.getElementById("user_input").value;
       console.log(userAmount + "this is the user amount");
-
-      /**/ //runningTotal += parseInt(document.getElementById("firstName").value);
-      //console.log(runningTotal);
-      //console.log(parseInt(document.getElementById("user_input").value));
     } else if (button.id == "b_two_b") {
       addedAmount = pageTwoMath(
         rangesliderOne.value,
@@ -136,11 +121,6 @@ nextBtn.forEach((button) => {
       );
       runningTotalScreenThree.innerHTML = runningTotal.toLocaleString("en-US");
 
-      console.log(rangesliderOne.value);
-      console.log(rangesliderTwo.value);
-      console.log(rangesliderThree.value);
-      console.log(runningTotal);
-      console.log("THIS IS THE addedAmount" + addedAmount);
       console.log(runningTotal, "this is the runningTotal NEW");
     } else if (button.id == "b_three_b") {
       let isChecked_One = document.getElementById("switch_one");
@@ -198,21 +178,18 @@ nextBtn.forEach((button) => {
         isChecked_Four_Amount
       );
 
-      console.log("THIS IS THE totalToggleAmount" + totalToggleAmount);
       console.log(runningTotal, "this is the runningTotal NEWWWWW");
       let runningTotalScreenFour = document.getElementById(
         "screen_four_running_total"
       );
       runningTotalScreenFour.innerHTML = runningTotal.toLocaleString("en-US");
     } else if (button.id == "b_four_b") {
-      //MATH???
       totalSliderAmountTwo = pageFourMath(
         rangesliderFour.value,
         rangesliderFive.value,
         rangesliderSix.value
       );
 
-      console.log("THIS IS THE totalSliderAmountTwo" + totalSliderAmountTwo);
       console.log(runningTotal, "this is the runningTotal NEWESTTT");
 
       let runningTotalScreenFive = document.getElementById(
@@ -268,14 +245,13 @@ nextBtn.forEach((button) => {
         isChecked_Eight_Amount
       );
 
-      console.log("THIS IS THE totalToggleAmountTwo" + totalToggleAmountTwo);
       console.log(runningTotal, "this is the runningTotal NEWWWWW");
       let finalYourEstimate = document.getElementById("your_estimate_styling");
       finalYourEstimate.innerHTML = userAmount;
 
       let finalOurEstimate = document.getElementById("our_estimate_styling");
-      finalOurEstimate_rounded = Math.round(runningTotal);
-      finalOurEstimate_tostring =
+      let finalOurEstimate_rounded = roundNearest100(runningTotal);
+      let finalOurEstimate_tostring =
         finalOurEstimate_rounded.toLocaleString("en-US");
       finalOurEstimate.innerHTML = finalOurEstimate_tostring;
     } else {
@@ -286,11 +262,7 @@ nextBtn.forEach((button) => {
   });
 });
 
-console.log(addedAmount);
-console.log(totalToggleAmount);
-console.log(totalSliderAmountTwo);
-console.log(totalToggleAmountTwo);
-
+//"PREVIOUS" BUTTONS/SUBTRACT VALUES SO AS NOT TO REPEAT FUNCTION ON "NEXT" BUTTON
 prevBtn.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.id == "b_three_a") {
@@ -303,10 +275,10 @@ prevBtn.forEach((button) => {
       subtractToggleAmountTwo = pageFiveMathSubtract(pageFiveTotal);
     }
     changesStep("previous");
-    /*if true then remove addedAmount*/
   });
 });
 
+//FORM FUNCTIONALITY
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const inputs = [];
@@ -336,49 +308,49 @@ function changesStep(btn) {
   steps[index].classList.add("active");
 }
 
-/*Create a function for each math problem*/
-/* WILL NEED TO CREATE A FUNCTION FOR PERCENTAGE, VS. JUST ADDING FOR THE TOGGLES */
-/*FUNCTIONS FOR RUNNING TOTAL*/
-
+/*FUNCTIONS FOR KEEPING TRACK OF RUNNING TOTAL*/
 function pageTwoMath(basicScreens, dataEntities, complexScreens) {
   pageTwoTotal =
     basicScreens * 800 + dataEntities * 1000 + complexScreens * 5000;
 
+  runningTotal = Math.round(10 * runningTotal) / 10;
   runningTotal += pageTwoTotal;
-  return runningTotal;
+  console.log("ROUNDED" + runningTotal);
+  return roundNearest10(runningTotal);
 }
 
 function pageThreeMath(hipaa, pci, gdpr, ada) {
   pageThreeTotal = hipaa * 0.08 + (pci + 10000) + (gdpr + 3000) + ada * 0.08;
 
+  runningTotal = Math.round(10 * runningTotal) / 10;
   runningTotal += pageThreeTotal;
-
-  return runningTotal;
+  console.log("ROUNDED" + runningTotal);
+  return roundNearest10(runningTotal);
 }
 
-/*FIX THIS MATH!!!*/
 function pageFourMath(roles, calcs, workflows) {
   pageFourTotal =
     runningTotal * 0.04 * roles +
     runningTotal * 0.06 * calcs +
     runningTotal * 0.12 * workflows;
 
+  runningTotal = Math.round(10 * runningTotal) / 10;
   runningTotal += pageFourTotal;
-
-  return runningTotal;
+  console.log("ROUNDED" + runningTotal);
+  return roundNearest10(runningTotal);
 }
 
 function pageFiveMath(webApp, mobileApp, ios, android) {
   pageFiveTotal =
     webApp + 10000 + mobileApp + 10000 + ios * 0.08 + android * 0.08;
 
+  runningTotal = Math.round(10 * runningTotal) / 10;
   runningTotal += pageFiveTotal;
-
-  return runningTotal;
+  console.log("ROUNDED" + runningTotal);
+  return roundNearest10(runningTotal);
 }
 
-/*PREVIOUS SCREEN SUBTRACTION FUNCTIONS*/
-
+/*"PREVIOUS" SCREEN SUBTRACTION FUNCTIONS*/
 function pageTwoMathSubtract(amountOne) {
   let pageTwoTotalSubtract = amountOne;
 
@@ -407,20 +379,6 @@ function pageFiveMathSubtract(amountFour) {
   return runningTotal;
 }
 
-/*SLIDER*/
-/*
-const slider = document.getElementById("myRange");
-const output = document.getElementById("demo");
-output.innerHTML = slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function () {
-  output.innerHTML = this.value;
-};
-
-console.log(slider.value);
-*/
-
 /*TOGGLES*/
 function ButtontoggleOne() {
   var t = document.getElementById("switch_one");
@@ -442,22 +400,17 @@ function ButtontoggleFour() {
   t.classList.toggle("checkbox");
 }
 
-//TO CHECK IF IT'S ON OR OFF, where input id is switchValue
-var isChecked = document.getElementById("switch_one").checked;
-console.log(isChecked);
+/*ROUNDING FUNCTIONS*/
+function roundNearest100(num) {
+  return Math.ceil(num / 100) * 100;
+}
 
-var isChecked = document.getElementById("switch_two").checked;
-console.log(isChecked);
-
-var isChecked = document.getElementById("switch_three").checked;
-console.log(isChecked);
-
-var isChecked = document.getElementById("switch_four").checked;
-console.log(isChecked);
+function roundNearest10(numTwo) {
+  return Math.ceil(numTwo / 10) * 10;
+}
 
 /*SHOW/HIDE OVERLAY TEXT FUNCTIONS*/
-/*screen two overlay functions*/
-
+/*SCREEN TWO OVERLAY FUNCTIONS*/
 const infoOne = document.getElementById("info_one");
 const overlayTextOne = document.getElementById("text_overlay_text_one");
 
@@ -491,8 +444,7 @@ infoThree.addEventListener("mouseout", function handleMouseOut() {
   overlayTextThree.style.display = "none";
 });
 
-/*screen three overlay functions*/
-
+/*SCREEN THREE OVERLAY FUNCTIONS*/
 const infoFour = document.getElementById("info_four");
 const overlayTextFour = document.getElementById("text_overlay_text_four");
 
@@ -537,8 +489,7 @@ infoSeven.addEventListener("mouseout", function handleMouseOut() {
   overlayTextSeven.style.display = "none";
 });
 
-/*screen four overlay functions*/
-
+/*SCREEN FOUR OVERLAY FUNCTIONS*/
 const infoEight = document.getElementById("info_eight");
 const overlayTextEight = document.getElementById("text_overlay_text_eight");
 
@@ -572,8 +523,7 @@ infoTen.addEventListener("mouseout", function handleMouseOut() {
   overlayTextTen.style.display = "none";
 });
 
-/*screen five overlay functions*/
-
+/*SCREEN FIVE OVERLAY FUNCTIONS*/
 const infoEleven = document.getElementById("info_eleven");
 const overlayTextEleven = document.getElementById("text_overlay_text_eleven");
 

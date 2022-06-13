@@ -9,7 +9,6 @@
 
 html,
 body {
-  /*display: grid;*/
   height: 100%;
   width: 100%;
   text-align: center;
@@ -24,10 +23,7 @@ body {
   visibility: hidden;
 }
 
-/* don't forget to import font family */
-
-/*SCREEN WIZARD*/
-
+/*SCREEN WIZARD FUNCTIONALITY*/
 section {
   height: 50%;
   width: 100%;
@@ -60,6 +56,7 @@ form {
   justify-content: space-between;
   align-items: flex-start;
 }
+
 .step {
   display: none;
   height: 100%;
@@ -150,11 +147,11 @@ form {
   border-radius: 4px;
 }
 
+/*BUTTONS*/
 button.next-btn,
 button.previous-btn,
 button.submit-btn {
   float: right;
-  /*margin-top: 20px;*/
   padding: 10px;
   border: none;
   outline: none;
@@ -162,17 +159,17 @@ button.submit-btn {
   color: white;
   font-size: 15px;
   cursor: pointer;
-  /* text-align: right; */
 }
+
 button.previous-btn {
   float: left;
 }
+
 button.submit-btn {
   background-color: aquamarine;
 }
 
 /*CONTENT FOR SCREENS*/
-
 #screens,
 #screens_one,
 #screens_two,
@@ -258,6 +255,17 @@ button.submit-btn {
   margin-top: 2%;
 }
 
+.user_amount_input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16%;
+  margin-top: 16%;
+  margin-left: 10px;
+}
+
 .nav_buttons {
   padding-top: 2%;
 }
@@ -274,8 +282,32 @@ button.submit-btn {
   z-index: 99;
 }
 
-/*screen two text overlays*/
+.nav_and_title_container_top_two {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 
+.nav_and_button_container_bottom {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_text {
+  height: 100%;
+  width: 100%;
+  font-size: 22px;
+  text-align: center;
+  justify-content: flex-start;
+  margin-bottom: 1%;
+}
+
+/*SCREEN TWO TEXT OVERLAYS*/
 .text_overlay_one {
   margin-top: 25px;
   position: fixed;
@@ -306,7 +338,7 @@ button.submit-btn {
   display: none;
 }
 
-/*screen three text overlays*/
+/*SCREEN THREE TEXT OVERLAYS*/
 .text_overlay_four {
   margin-top: 30px;
   position: fixed;
@@ -347,8 +379,7 @@ button.submit-btn {
   display: none;
 }
 
-/*screen four text overlays*/
-
+/*SCREEN FOUR TEXT OVERLAYS*/
 .text_overlay_eight {
   margin-top: 30px;
   position: fixed;
@@ -379,7 +410,7 @@ button.submit-btn {
   display: none;
 }
 
-/*screen five text overlays*/
+/*SCREEN FIVE TEXT OVERLAYS*/
 .text_overlay_eleven {
   margin-top: 30px;
   position: fixed;
@@ -420,45 +451,7 @@ button.submit-btn {
   display: none;
 }
 
-.nav_and_title_container_top_two {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.nav_and_button_container_bottom {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /*margin-bottom: -36%;*/
-}
-
-.main_text {
-  height: 100%;
-  width: 100%;
-  font-size: 22px;
-  text-align: center;
-  justify-content: flex-start;
-  margin-bottom: 1%;
-}
-
-/*!!!!!!!!!!!!!!!!!!!*/
-.user_amount_input {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 16%;
-  margin-top: 16%;
-  margin-left: 10px;
-}
-
-/*NEW SLIDERS*/
+/*SLIDERS*/
 .sliders {
   width: 100%;
   display: flex;
@@ -487,9 +480,7 @@ button.submit-btn {
   padding-left: 5%;
   text-align: left;
   padding-top: 6%;
-  flex-shrink: 0.5; /*
-  row-gap: 30%;
-  margin-top: 6%;*/
+  flex-shrink: 0.5;
 }
 
 .slider_text > p {
@@ -586,24 +577,6 @@ button.submit-btn {
   margin-bottom: 50%;
 }
 
-/*.toggle_one > div {
-  margin-bottom: 50%;
-}
-
-.toggle_two > div {
-  margin-bottom: 50%;
-  padding-left: 25%;
-}
-
-.toggle_three > div {
-  margin-bottom: 65%;
-}
-
-.toggle_four > div {
-  margin-bottom: 50%;
-  padding-left: 25%;
-}*/
-
 .toggle_styling {
   height: 100%;
   width: 100%;
@@ -648,7 +621,6 @@ button.submit-btn {
   width: 10px;
 }
 
-/* toggle in label designing */
 .toggle {
   position: relative;
   display: inline-block;
@@ -658,7 +630,6 @@ button.submit-btn {
   border: 2px solid white;
 }
 
-/* After slide changes */
 .toggle:after {
   content: "";
   position: absolute;
@@ -671,23 +642,19 @@ button.submit-btn {
   transition: all 0.5s;
 }
 
-/* Toggle text */
 p {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
 
-/* Checkbox checked effect */
 .checkbox:checked + .toggle::after {
   left: 30px;
 }
 
-/* Checkbox checked toggle label bg color */
 .checkbox:checked + .toggle {
   background-color: rgb(216, 119, 65);
 }
 
-/* Checkbox vanished */
 .checkbox {
   display: none;
 }
@@ -726,7 +693,6 @@ p {
 }
 
 /*RUNNING TOTAL STYLING*/
-
 .running_total_display {
   display: flex;
   flex-direction: row;

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js" defer></script>
     <title>Document</title>
   </head>
@@ -27,24 +28,29 @@
                 </div>
 
                 <!--User Amount Input-->
-                <div class="user_amount_input">
-                  <p
-                    style="
-                      color: rgb(216, 119, 65);
-                      font-size: 50px;
-                      padding-right: 10px;
-                    "
-                  >
-                    $
-                  </p>
-                  <label for="firstName"></label>
-                  <input
-                    type="text"
-                    class="user_input_amount"
-                    id="user_input"
-                    name="user_input"
-                    placeholder="ENTER YOUR AMOUNT!"
-                  />
+                <div id="user_amount_buttons_wrapper">
+                  <div class="user_amount_input">
+                    <p
+                      style="
+                        color: rgb(216, 119, 65);
+                        font-size: 50px;
+                        padding-right: 10px;
+                      "
+                    >
+                      $
+                    </p>
+                    <label for="firstName"></label>
+                    <input
+                      type="text"
+                      class="user_input_amount"
+                      id="count"
+                      name="user_input"
+                      placeholder="ENTER YOUR AMOUNT!"
+                    />
+                  </div>
+                  <div style="margin-left: 6%">
+                    <button id="hidden_icons_button">I DON'T KNOW!</button>
+                  </div>
                 </div>
 
                 <!--Spacer-->
@@ -54,8 +60,45 @@
                 <div class="nav_deco_b"></div>
                 <div class="nav_buttons">
                   <button id="b_one" type="button" class="next-btn">
-                    TELL ME MORE!
+                    LET'S GET STARTED!
                   </button>
+                </div>
+
+                <!--HIDDEN DIV, "I DON'T KNOW"-->
+                <div id="hidden_icons_container">
+                  <!--Total <input type="text"  value="1">-->
+
+                  <!--<button onclick="changeValue(this)">50000</button>-->
+                  <div>
+                    <input
+                      id="button_icon_one"
+                      type="button"
+                      class="icon_images_one"
+                      type="button"
+                      onclick="changeIconOne()"
+                      value="SMALL"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      id="button_icon_two"
+                      type="button"
+                      class="icon_images_two"
+                      type="button"
+                      onclick="changeIconTwo()"
+                      value="MEDIUM"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      id="button_icon_three"
+                      type="button"
+                      class="icon_images_three"
+                      type="button"
+                      onclick="changeIconThree()"
+                      value="LARGE"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -67,51 +110,105 @@
               <div class="form-group_two">
                 <!--Header-->
                 <div>
-                  <p class="main_text">LET'S TALK ABOUT SCREENS!</p>
-                  <div class="nav_deco_two"></div>
+                  <p class="main_text_two">LET'S TALK ABOUT SCREENS!</p>
+                  <div class="nav_deco_two_a"></div>
+                  <div class="running_total_display">
+                    <p
+                      style="
+                        color: rgb(216, 119, 65);
+                        font-size: 20px;
+                        padding-right: 1%;
+                      "
+                    >
+                      $
+                    </p>
+                    <p id="screen_three_running_total">0</p>
+                  </div>
+                  <!--<p id="screen_three_running_total">0</p>-->
                 </div>
 
                 <!--Main Body/Sliders-->
-          <div class="slider_container">
+                <div class="slider_container">
                   <div class="slider_text">
-                <div id="text_overlay_text_one" class="text_overlay_one">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                    <div id="text_overlay_text_one" class="text_overlay_one">
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div class="slider_group_one">
-                    <div><p id="info_one" class="info_boxes" style="margin-right: 6px">i</p></div>
-                    <div>
-                    <p>
-                      BASIC SCREENS:
-                      <span style="color: #d87741">(</span>
-                      <span id="demoOne"></span>
-                      <span style="color: #d87741">)</span>
-                    </p>
+                      <div>
+                        <p
+                          id="info_one"
+                          class="info_boxes"
+                          style="margin-right: 6px"
+                        >
+                          i
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          BASIC SCREENS:
+                          <span style="color: #d87741">(</span>
+                          <span id="demoOne"></span>
+                          <span style="color: #d87741">)</span>
+                        </p>
+                      </div>
                     </div>
+                    <div id="text_overlay_text_two" class="text_overlay_two">
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
                     </div>
-                <div id="text_overlay_text_two" class="text_overlay_two">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p>
-                </div>
                     <div class="slider_group_one">
-                    <div><p id="info_two" class="info_boxes" style="margin-right: 6px">i</p></div>
-                    <div>
-                    <p>
-                      CORE DATA ENTITIES: <span style="color: #d87741">(</span>
-                      <span id="demoTwo"></span>
-                      <span style="color: #d87741">)</span>
-                    </p>
+                      <div>
+                        <p
+                          id="info_two"
+                          class="info_boxes"
+                          style="margin-right: 6px"
+                        >
+                          i
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          CORE DATA ENTITIES:
+                          <span style="color: #d87741">(</span>
+                          <span id="demoTwo"></span>
+                          <span style="color: #d87741">)</span>
+                        </p>
+                      </div>
                     </div>
+                    <div
+                      id="text_overlay_text_three"
+                      class="text_overlay_three"
+                    >
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
                     </div>
-                <div id="text_overlay_text_three" class="text_overlay_three">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p>
-                </div>
                     <div class="slider_group_one">
-                    <div><p id="info_three" class="info_boxes" style="margin-right: 6px">i</p></div>
-                    <div>
-                    <p>
-                      COMPLEX SCREENS: <span style="color: #d87741">(</span>
-                      <span id="demoThree"></span>
-                      <span style="color: #d87741">)</span>
-                    </p>
-                    </div>
+                      <div>
+                        <p
+                          id="info_three"
+                          class="info_boxes"
+                          style="margin-right: 6px"
+                        >
+                          i
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          COMPLEX SCREENS: <span style="color: #d87741">(</span>
+                          <span id="demoThree"></span>
+                          <span style="color: #d87741">)</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
 
@@ -133,6 +230,7 @@
                         class="myslider"
                         id="sliderRangeOne"
                         step="1"
+                        onchange="Call()"
                       />
                       <p style="visibility: hidden">i</p>
                     </div>
@@ -153,6 +251,7 @@
                         value="0"
                         class="myslider"
                         id="sliderRangeTwo"
+                        onchange="Call()"
                       />
                       <p style="visibility: hidden">i</p>
                     </div>
@@ -173,11 +272,12 @@
                         value="0"
                         class="myslider"
                         id="sliderRangeThree"
+                        onchange="Call()"
                       />
                       <p></p>
                     </div>
                   </div>
-          </div>
+                </div>
 
                 <!--Footer-->
                 <div class="form-group_bottom_two">
@@ -213,7 +313,7 @@
                     >
                       $
                     </p>
-                    <p id="screen_three_running_total">23,000</p>
+                    <p id="screen_four_running_total">000000</p>
                   </div>
                 </div>
               </div>
@@ -228,18 +328,40 @@
               <div class="toggle_styling">
                 <div class="toggle_group_one">
                   <div class="toggle_one">
-                  <div id="text_overlay_text_four" class="text_overlay_four">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                    <div id="text_overlay_text_four" class="text_overlay_four">
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div>
-                      <p id="info_four" class="info_boxes" style="margin-right: 6px">i</p>
+                      <p
+                        id="info_four"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
                     </div>
                     <div style="padding-bottom: 70%"><p>HIPAA:</p></div>
                   </div>
-                  <div class="toggle_two" style="margin-top: -2%;">
-                  <div id="text_overlay_text_five" class="text_overlay_five">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                  <div class="toggle_two" style="margin-top: -2%">
+                    <div id="text_overlay_text_five" class="text_overlay_five">
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div>
-                      <p id="info_five" class="info_boxes" style="margin-right: 6px">i</p>
+                      <p
+                        id="info_five"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
                     </div>
                     <div><p>PCI:</p></div>
                   </div>
@@ -253,37 +375,65 @@
                           type="checkbox"
                           id="switch_one"
                           class="checkbox"
+                          onchange="Call_Two()"
                         />
-                        <label for="switch_one" class="toggle">
-                        </label>
+                        <label for="switch_one" class="toggle"> </label>
                       </div>
                     </div>
-                    
                   </div>
 
                   <div class="toggle_two">
                     <div>
-                      <input type="checkbox" id="switch_two" class="checkbox" />
-                      <label for="switch_two" class="toggle">
-                      </label>
+                      <input
+                        type="checkbox"
+                        id="switch_two"
+                        class="checkbox"
+                        onchange="Call_Two()"
+                      />
+                      <label for="switch_two" class="toggle"> </label>
                     </div>
                   </div>
                 </div>
 
                 <div class="toggle_group_one">
                   <div class="toggle_one">
-                  <div id="text_overlay_text_six" class="text_overlay_six">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                    <div id="text_overlay_text_six" class="text_overlay_six">
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div>
-                      <p id="info_six" class="info_boxes" style="margin-right: 6px">i</p>
+                      <p
+                        id="info_six"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
                     </div>
                     <div style="padding-bottom: 70%"><p>GDPR:</p></div>
                   </div>
                   <div class="toggle_two">
-                  <div id="text_overlay_text_seven" class="text_overlay_seven">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                    <div
+                      id="text_overlay_text_seven"
+                      class="text_overlay_seven"
+                    >
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div>
-                      <p id="info_seven" class="info_boxes" style="margin-right: 6px">i</p>
+                      <p
+                        id="info_seven"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
                     </div>
                     <div><p>ADA/WCAG:</p></div>
                   </div>
@@ -297,9 +447,9 @@
                           type="checkbox"
                           id="switch_three"
                           class="checkbox"
+                          onchange="Call_Two()"
                         />
-                        <label for="switch_three" class="toggle">
-                        </label>
+                        <label for="switch_three" class="toggle"> </label>
                       </div>
                     </div>
                   </div>
@@ -310,9 +460,9 @@
                         type="checkbox"
                         id="switch_four"
                         class="checkbox"
+                        onchange="Call_Two()"
                       />
-                      <label for="switch_four" class="toggle">
-                      </label>
+                      <label for="switch_four" class="toggle"> </label>
                     </div>
                   </div>
                 </div>
@@ -357,49 +507,93 @@
                     >
                       $
                     </p>
-                    <p id="screen_four_running_total">23,000</p>
+                    <p id="screen_five_running_total">0</p>
                   </div>
                 </div>
+
+                <!--<p id="screen_five_running_total">000000</p>-->
 
                 <!--Main Body/Sliders-->
                 <div class="slider_container_two">
                   <div class="slider_text">
-                    <div id="text_overlay_text_eight" class="text_overlay_eight">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                    <div
+                      id="text_overlay_text_eight"
+                      class="text_overlay_eight"
+                    >
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div class="slider_group_one">
-                    <div><p id="info_eight" class="info_boxes" style="margin-right: 6px">i</p></div>
-                    <div>
-                    <p>
-                      ROLES:
-                      <span style="color: #d87741">(</span>
-                      <span id="demoFour"></span>
-                      <span style="color: #d87741">)</span>
-                    </p>
+                      <div>
+                        <p
+                          id="info_eight"
+                          class="info_boxes"
+                          style="margin-right: 6px"
+                        >
+                          i
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          ROLES:
+                          <span style="color: #d87741">(</span>
+                          <span id="demoFour"></span>
+                          <span style="color: #d87741">)</span>
+                        </p>
+                      </div>
                     </div>
+                    <div id="text_overlay_text_nine" class="text_overlay_nine">
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
                     </div>
-                  <div id="text_overlay_text_nine" class="text_overlay_nine">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
                     <div class="slider_group_one">
-                    <div><p id="info_nine" class="info_boxes" style="margin-right: 6px">i</p></div>
-                    <div>
-                    <p>
-                      CALCULATIONS: <span style="color: #d87741">(</span>
-                      <span id="demoFive"></span>
-                      <span style="color: #d87741">)</span>
-                    </p>
+                      <div>
+                        <p
+                          id="info_nine"
+                          class="info_boxes"
+                          style="margin-right: 6px"
+                        >
+                          i
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          CALCULATIONS: <span style="color: #d87741">(</span>
+                          <span id="demoFive"></span>
+                          <span style="color: #d87741">)</span>
+                        </p>
+                      </div>
                     </div>
+                    <div id="text_overlay_text_ten" class="text_overlay_ten">
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
                     </div>
-                  <div id="text_overlay_text_ten" class="text_overlay_ten">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
                     <div class="slider_group_one">
-                    <div><p id="info_ten" class="info_boxes" style="margin-right: 6px">i</p></div>
-                    <div>
-                    <p>
-                      WORKFLOWS: <span style="color: #d87741">(</span>
-                      <span id="demoSix"></span>
-                      <span style="color: #d87741">)</span>
-                    </p>
-                    </div>
+                      <div>
+                        <p
+                          id="info_ten"
+                          class="info_boxes"
+                          style="margin-right: 6px"
+                        >
+                          i
+                        </p>
+                      </div>
+                      <div>
+                        <p>
+                          WORKFLOWS: <span style="color: #d87741">(</span>
+                          <span id="demoSix"></span>
+                          <span style="color: #d87741">)</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
 
@@ -425,6 +619,7 @@
                         value="0"
                         class="myslider"
                         id="sliderRangeFour"
+                        onchange="Call_Three()"
                       />
                       <p style="visibility: hidden">i</p>
                     </div>
@@ -450,6 +645,7 @@
                         value="0"
                         class="myslider"
                         id="sliderRangeFive"
+                        onchange="Call_Three()"
                       />
                       <p style="visibility: hidden">i</p>
                     </div>
@@ -475,6 +671,7 @@
                         value="0"
                         class="myslider"
                         id="sliderRangeSix"
+                        onchange="Call_Three()"
                       />
                       <p style="visibility: hidden">i</p>
                     </div>
@@ -515,11 +712,13 @@
                     >
                       $
                     </p>
-                    <p id="screen_five_running_total">23,000</p>
+                    <p id="screen_six_running_total">0</p>
                   </div>
                 </div>
               </div>
-              
+
+              <!--<p id="screen_six_running_total">000000</p>-->
+
               <!--Spacers-->
               <div class="spacer">I AM A SPACER DIV</div>
               <div class="spacer">I AM A SPACER DIV</div>
@@ -531,20 +730,48 @@
               <div class="toggle_styling_two">
                 <div class="toggle_group_one">
                   <div class="toggle_one">
-                    <div id="text_overlay_text_eleven" class="text_overlay_eleven">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                    <div
+                      id="text_overlay_text_eleven"
+                      class="text_overlay_eleven"
+                    >
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div>
-                      <p id="info_eleven" class="info_boxes" style="margin-right: 6px">i</p>
+                      <p
+                        id="info_eleven"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
                     </div>
                     <div style="padding-bottom: 45%"><p>WEB APP:</p></div>
                   </div>
-                  <div class="toggle_two" style="margin-top: 3%;">
-                    <div id="text_overlay_text_twelve" class="text_overlay_twelve">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
-                    <div>
-                      <p id="info_twelve" class="info_boxes" style="margin-right: 6px">i</p>
+                  <div class="toggle_two" style="margin-top: 3%">
+                    <div
+                      id="text_overlay_text_twelve"
+                      class="text_overlay_twelve"
+                    >
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
                     </div>
-                    <div ><p>MOBILE APP:</p></div>
+                    <div>
+                      <p
+                        id="info_twelve"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
+                    </div>
+                    <div><p>MOBILE APP:</p></div>
                   </div>
                 </div>
 
@@ -556,6 +783,7 @@
                           type="checkbox"
                           id="switch_five"
                           class="checkbox"
+                          onchange="Call_Four()"
                         />
                         <label for="switch_five" class="toggle">
                           <!--<p>OFF    ON</p>-->
@@ -568,7 +796,12 @@
 
                   <div class="toggle_two">
                     <div>
-                      <input type="checkbox" id="switch_six" class="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="switch_six"
+                        class="checkbox"
+                        onchange="Call_Four()"
+                      />
                       <label for="switch_six" class="toggle">
                         <!--<p>OFF    ON</p>-->
                       </label>
@@ -579,18 +812,46 @@
                 <!--second group of toggles-->
                 <div class="toggle_group_one">
                   <div class="toggle_one">
-                    <div id="text_overlay_text_thirteen" class="text_overlay_thirteen">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                    <div
+                      id="text_overlay_text_thirteen"
+                      class="text_overlay_thirteen"
+                    >
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div>
-                      <p id="info_thirteen" class="info_boxes" style="margin-right: 6px">i</p>
+                      <p
+                        id="info_thirteen"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
                     </div>
                     <div style="padding-bottom: 85%"><p>iOS:</p></div>
                   </div>
-                  <div class="toggle_two" style="margin-top: 3%;">
-                    <div id="text_overlay_text_fourteen" class="text_overlay_fourteen">
-                  <p class="overlay_text">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit, sed do eiusmod tempor <br/>incididunt ut labore et dolore magna aliqua.</p></div>
+                  <div class="toggle_two" style="margin-top: 3%">
+                    <div
+                      id="text_overlay_text_fourteen"
+                      class="text_overlay_fourteen"
+                    >
+                      <p class="overlay_text">
+                        Lorem ipsum dolor sit amet, consectetur <br />adipiscing
+                        elit, sed do eiusmod tempor <br />incididunt ut labore
+                        et dolore magna aliqua.
+                      </p>
+                    </div>
                     <div>
-                      <p id="info_fourteen" class="info_boxes" style="margin-right: 6px">i</p>
+                      <p
+                        id="info_fourteen"
+                        class="info_boxes"
+                        style="margin-right: 6px"
+                      >
+                        i
+                      </p>
                     </div>
                     <div><p>ANDROID:</p></div>
                   </div>
@@ -604,6 +865,7 @@
                           type="checkbox"
                           id="switch_seven"
                           class="checkbox"
+                          onchange="Call_Four()"
                         />
                         <label for="switch_seven" class="toggle">
                           <!--<p>OFF    ON</p>-->
@@ -620,6 +882,7 @@
                         type="checkbox"
                         id="switch_eight"
                         class="checkbox"
+                        onchange="Call_Four()"
                       />
                       <label for="switch_eight" class="toggle">
                         <!--<p>OFF    ON</p>-->
@@ -637,7 +900,7 @@
               <div class="spacer">I AM A SPACER DIV</div>
               <div class="spacer">I AM A SPACER DIV</div>
               <div class="spacer">I AM A SPACER DIV</div>
-              
+
               <!--Footer-->
               <div class="form-group_bottom_five">
                 <div class="nav_deco_two_b"></div>
@@ -663,16 +926,15 @@
                   <div class="nav_deco_five"></div>
                 </div>
                 <p class="your_estimate_p">
-                  <span style="color: rgb(216, 119, 65)">YOUR  </span>ESTIMATE
+                  <span style="color: rgb(216, 119, 65)">YOUR </span>ESTIMATE
                 </p>
-
 
                 <!--Main Body/Estimates-->
                 <div class="form-group">
                   <div id="your_estimate_styling"><p>25,000</p></div>
                 </div>
                 <p class="our_estimate_p">
-                  <span style="color: rgb(216, 119, 65)">OUR  </span>ESTIMATE
+                  <span style="color: rgb(216, 119, 65)">OUR </span>ESTIMATE
                 </p>
                 <div class="form-group">
                   <div id="our_estimate_styling"><p>25,000</p></div>
@@ -680,17 +942,206 @@
                 <br />
                 <br />
                 <p class="closing_text">
-                  WE’D LOVE TO CONTINUE TALKING <br /> ABOUT MAKING
-                  <span style="color: rgb(216, 119, 65)">YOUR PROJECT </span><br />COME
-                  TO LIFE!
+                  WE’D LOVE TO CONTINUE TALKING <br />
+                  ABOUT MAKING
+                  <span style="color: rgb(216, 119, 65)">YOUR PROJECT </span
+                  ><br />COME TO LIFE!
                 </p>
 
-              <!--Footer-->
-              <div class="form-group_bottom_six">
-                <div class="nav_deco"></div>
-                <button id="b_six_a" type="button" class="previous-btn">
-                  PREV
-                </button>
+                <div id="formTarget"></div>
+
+                <script
+                  charset="utf-8"
+                  type="text/javascript"
+                  src="//js.hsforms.net/forms/v2.js"
+                ></script>
+                <script>
+                  hbspt.forms.create({
+                    region: "na1",
+                    portalId: "20892485",
+                    formId: "f43806b6-2e2d-4e9c-98f0-6948826f5a99",
+                    css: "",
+                    target: "#formTarget",
+                    onFormReady: function ($form, ctx) {
+                      document.getElementById(
+                        "basic_screens_selection-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-basic_screens_selection-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "complex_screens-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-complex_screens-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "core_data_entities-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-core_data_entities-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "hipaa-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-hipaa-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "pci-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-pci-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "gdpr-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-gdpr-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "ada_wcag-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-ada_wcag-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "roles-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-roles-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "calculations-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-calculations-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "workflows-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-workflows-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "web_app-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-web_app-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "mobile_app-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-mobile_app-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "ios-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-ios-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "android-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-android-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+                    },
+                    onFormSubmit: function ($form, ctx) {
+                      document.getElementById(
+                        "basic_screens_selection-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = rangesliderOne.value;
+
+                      document.getElementById(
+                        "complex_screens-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = rangesliderTwo.value;
+
+                      document.getElementById(
+                        "core_data_entities-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = rangesliderThree.value;
+
+                      document.getElementById(
+                        "hipaa-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_One.checked;
+
+                      document.getElementById(
+                        "pci-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_Two.checked;
+
+                      document.getElementById(
+                        "gdpr-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_Three.checked;
+
+                      document.getElementById(
+                        "ada_wcag-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_Four.checked;
+
+                      document.getElementById(
+                        "roles-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = rangesliderFour.value;
+
+                      document.getElementById(
+                        "calculations-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = rangesliderFive.value;
+
+                      document.getElementById(
+                        "workflows-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = rangesliderSix.value;
+
+                      document.getElementById(
+                        "web_app-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_Five.checked;
+
+                      document.getElementById(
+                        "mobile_app-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_Six.checked;
+
+                      document.getElementById(
+                        "ios-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_Seven.checked;
+
+                      document.getElementById(
+                        "android-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = isChecked_Eight.checked;
+                    },
+                  });
+                </script>
+
+                <!--Footer-->
+                <div class="form-group_bottom_six">
+                  <div class="nav_deco"></div>
+                  <button id="b_six_a" type="button" class="previous-btn">
+                    PREV
+                  </button>
+                </div>
               </div>
             </div>
           </div>

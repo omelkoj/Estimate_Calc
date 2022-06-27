@@ -16,6 +16,7 @@ body {
   background-color: black;
   font-family: "Inter", sans-serif;
   color: white;
+  overflow: hidden;
 }
 
 /*SPACER DIVS*/
@@ -117,7 +118,7 @@ form {
   justify-content: center;
   flex-direction: column;
   align-content: center;
-  padding-top: 5.1%;
+  padding-top: 8%;
 }
 
 .form-group_bottom_five {
@@ -217,6 +218,12 @@ button.submit-btn {
   padding-top: 2%;
 }
 
+.nav_deco_two_a {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: -3%;
+}
+
 .nav_deco_b {
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -231,6 +238,7 @@ button.submit-btn {
 .nav_deco_two_b {
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: -2%;
 }
 
 .nav_deco_two_c {
@@ -261,7 +269,6 @@ button.submit-btn {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 16%;
   margin-top: 16%;
   margin-left: 10px;
 }
@@ -305,6 +312,15 @@ button.submit-btn {
   text-align: center;
   justify-content: flex-start;
   margin-bottom: 1%;
+}
+
+.main_text_two {
+  height: 100%;
+  width: 100%;
+  font-size: 22px;
+  text-align: center;
+  justify-content: flex-start;
+  margin-top: 2%;
 }
 
 /*SCREEN TWO TEXT OVERLAYS*/
@@ -728,4 +744,93 @@ p {
   left: 0;
   opacity: 1;
   background: #0057e3;
+}
+
+/*HIDDEN ICON DIV STYLING*/
+
+#hidden_icons_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  margin-top: -175px;
+  visibility: hidden;
+  flex-shrink: 0;
+}
+
+/*.icons {
+  background-color: #d87741;
+  border-radius: 50%;
+  height: 125px;
+  width: 125px;
+}*/
+
+.icon_images_one,
+.icon_images_two,
+.icon_images_three {
+  height: 50px;
+  width: 50px;
+}
+
+#user_amount_buttons_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14%;
+  justify-content: center;
+  align-items: center;
+}
+
+#button_icon_one:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+#button_icon_one {
+  background-image: url(./img/Icon_Button_One.png);
+  background-color: transparent;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  font-size: 2rem;
+  border: none;
+  color: white;
+  text-shadow: 0 0 1.5px black, 0 0 1.5px black, 0 0 1.5px black,
+    0 0 1.5px black;
+}
+
+#button_icon_two:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+#button_icon_two {
+  background-image: url(./img/Icon_Button_Two.png);
+  background-color: transparent;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  font-size: 2rem;
+  border: none;
+  color: white;
+  text-shadow: 0 0 1.5px black, 0 0 1.5px black, 0 0 1.5px black,
+    0 0 1.5px black;
+}
+
+#button_icon_three:hover {
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+}
+
+#button_icon_three {
+  background-image: url(./img/Icon_Button_Three.png);
+  background-color: transparent;
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  font-size: 2rem;
+  border: none;
+  color: white;
+  text-shadow: 0 0 1.5px black, 0 0 1.5px black, 0 0 1.5px black,
+    0 0 1.5px black;
 }

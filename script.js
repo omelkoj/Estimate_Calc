@@ -1,5 +1,9 @@
+//MAKE SURE ALL HAVE STEPS!
+//STILL CHECK ON ALL MATH!!!!!!!
+
 //AUTO INPUT COMMAS INTO USER-ENTERED ESTIMATE AMOUNT
-var el = document.querySelector("input.user_input_amount");
+//used to be querySelector input.user_amount_input/something
+var el = document.getElementById("count");
 el.addEventListener("keyup", function (event) {
   if (event.which >= 37 && event.which <= 40) return;
 
@@ -7,6 +11,57 @@ el.addEventListener("keyup", function (event) {
     .replace(/\D/g, "")
     .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 });
+
+//SHOW HIDDEN "I DON'T KNOW" DIV"
+document
+  .getElementById("hidden_icons_button")
+  .addEventListener("click", showHiddenDiv);
+
+function showHiddenDiv() {
+  var x = document.getElementById("hidden_icons_container");
+  var y = document.getElementById("user_amount_buttons_wrapper");
+  x.style.visibility = window.getComputedStyle(
+    document.getElementById("hidden_icons_container")
+  ).visibility;
+  if (x.style.visibility === "hidden") {
+    x.style.visibility = "visible";
+    y.style.marginTop = "-8%";
+    y.style.marginBottom = "22%";
+  } else {
+    x.style.visibility = "hidden";
+    y.style.marginTop = "1%";
+    y.style.marginBottom = "13%";
+  }
+}
+
+/*function change(value) {
+  document.getElementById("count").value = 500 * value;
+  document.getElementById("totalValue").innerHTML =
+    "Total price: $" + 500 * value;
+}*/
+
+function changeIconOne() {
+  document.getElementById("count").value = "50,000";
+}
+
+function changeIconTwo() {
+  document.getElementById("count").value = "250,000";
+}
+
+function changeIconThree() {
+  document.getElementById("count").value = "500,000";
+}
+
+/*let hiddenIconsDiv = document.getElementById("hidden_icons_container");
+let hiddenIconsBtn = document.getElementById("hidden_icons_button");
+
+hiddenIconsBtn.onclick = function () {
+  if (hiddenIconsDiv.style.visibility == "hidden") {
+    hiddenIconsDiv.style.visibility = "visible";
+  } else {
+    hiddenIconsDiv.style.visibility = "hidden";
+  }
+};*/
 
 //SLIDERS
 
@@ -76,6 +131,180 @@ rangesliderSix.oninput = function () {
 
 console.log(rangesliderSix.value);
 
+//VARIABLES FOR UPDATING SCREEN TOTALS
+
+let runningTotalScreenThree = document.getElementById(
+  "screen_three_running_total"
+);
+
+let runningTotalScreenFour = document.getElementById(
+  "screen_four_running_total"
+);
+
+let runningTotalScreenFive = document.getElementById(
+  "screen_five_running_total"
+);
+
+let runningTotalScreenSix = document.getElementById("screen_six_running_total");
+
+//TRYING OUT SAME-SCREEN UPDATING
+function Call() {
+  pageTwoMath(
+    rangesliderOne.value,
+    rangesliderTwo.value,
+    rangesliderThree.value
+  );
+
+  console.log(rangesliderOne.value);
+  console.log(rangesliderTwo.value);
+  console.log(rangesliderThree.value);
+
+  runningTotal = roundNearest10(runningTotal);
+  runningTotalScreenThree.innerHTML = runningTotal.toLocaleString("en-US");
+}
+
+const isChecked_One = document.getElementById("switch_one");
+console.log(isChecked_One.checked);
+
+const isChecked_Two = document.getElementById("switch_two");
+console.log(isChecked_Two.checked);
+
+const isChecked_Three = document.getElementById("switch_three");
+console.log(isChecked_Three.checked);
+
+const isChecked_Four = document.getElementById("switch_four");
+console.log(isChecked_Four.checked);
+
+function Call_Two() {
+  let isChecked_One_Amount = 0;
+  let isChecked_Two_Amount = 0;
+  let isChecked_Three_Amount = 0;
+  let isChecked_Four_Amount = 0;
+  console.log("TESTING" + runningTotal);
+
+  if (isChecked_One.checked == false) {
+    isChecked_One_Amount = 0;
+  } else {
+    isChecked_One_Amount = runningTotal;
+  }
+
+  if (isChecked_Two.checked == false) {
+    isChecked_Two_Amount = -10000;
+  } else {
+    isChecked_Two_Amount = 0;
+  }
+
+  if (isChecked_Three.checked == false) {
+    isChecked_Three_Amount = -3000;
+  } else {
+    isChecked_Three_Amount = 0;
+  }
+
+  if (isChecked_Four.checked == false) {
+    isChecked_Four_Amount = 0;
+  } else {
+    isChecked_Four_Amount = runningTotal;
+  }
+
+  totalToggleAmount = pageThreeMath(
+    isChecked_One_Amount,
+    isChecked_Two_Amount,
+    isChecked_Three_Amount,
+    isChecked_Four_Amount
+  );
+
+  console.log(
+    isChecked_One_Amount,
+    isChecked_Two_Amount,
+    isChecked_Three_Amount,
+    isChecked_Four_Amount
+  );
+
+  //console.log(runningTotal, "this is the runningTotal NEWWWWW");
+  runningTotalTwo = roundNearest10(runningTotalTwo);
+  runningTotalScreenFour.innerHTML = runningTotalTwo.toLocaleString("en-US");
+}
+
+function Call_Three() {
+  pageFourMath(
+    rangesliderFour.value,
+    rangesliderFive.value,
+    rangesliderSix.value
+  );
+
+  console.log(rangesliderFour.value);
+  console.log(rangesliderFive.value);
+  console.log(rangesliderSix.value);
+
+  runningTotalThree = roundNearest10(runningTotalThree);
+  runningTotalScreenFive.innerHTML = runningTotalThree.toLocaleString("en-US");
+}
+
+const isChecked_Five = document.getElementById("switch_five");
+console.log(isChecked_Five.checked);
+
+const isChecked_Six = document.getElementById("switch_six");
+console.log(isChecked_Six.checked);
+
+const isChecked_Seven = document.getElementById("switch_seven");
+console.log(isChecked_Seven.checked);
+
+const isChecked_Eight = document.getElementById("switch_eight");
+console.log(isChecked_Eight.checked);
+
+function Call_Four() {
+  let isChecked_Five_Amount = 0;
+  let isChecked_Six_Amount = 0;
+  let isChecked_Seven_Amount = 0;
+  let isChecked_Eight_Amount = 0;
+
+  if (isChecked_Five.checked == false) {
+    isChecked_Five_Amount = -10000;
+  } else {
+    isChecked_Five_Amount = runningTotal;
+  }
+
+  if (isChecked_Six.checked == false) {
+    isChecked_Six_Amount = -10000;
+  } else {
+    isChecked_Six_Amount = runningTotal;
+  }
+
+  if (isChecked_Seven.checked == false) {
+    isChecked_Seven_Amount = 0;
+  } else {
+    isChecked_Seven_Amount = runningTotal;
+  }
+
+  if (isChecked_Eight.checked == false) {
+    isChecked_Eight_Amount = 0;
+  } else {
+    isChecked_Eight_Amount = runningTotal;
+  }
+
+  totalToggleAmountTwo = pageFiveMath(
+    isChecked_Five_Amount,
+    isChecked_Six_Amount,
+    isChecked_Seven_Amount,
+    isChecked_Eight_Amount
+  );
+
+  runningTotalFour = roundNearest10(runningTotalFour);
+  runningTotalScreenSix.innerHTML = runningTotalFour.toLocaleString("en-US");
+
+  console.log(runningTotal, "this is the runningTotal NEWWWWW");
+  //User Amount
+  let finalYourEstimate = document.getElementById("your_estimate_styling");
+  finalYourEstimate.innerHTML = userAmount;
+
+  //Estimated Amount
+  let finalOurEstimate = document.getElementById("our_estimate_styling");
+  let finalOurEstimate_rounded = roundNearest100(runningTotalFour);
+  let finalOurEstimate_tostring =
+    finalOurEstimate_rounded.toLocaleString("en-US");
+  finalOurEstimate.innerHTML = finalOurEstimate_tostring;
+}
+
 //WIZARD FUNCTIONALITY/FUNCTIONS FOR CALCULATIONS
 const steps = Array.from(document.querySelectorAll("form .step"));
 const nextBtn = document.querySelectorAll("form .next-btn");
@@ -84,6 +313,9 @@ const form = document.querySelector("form");
 
 let userAmount = 0;
 let runningTotal = 0;
+let runningTotalTwo = 0;
+let runningTotalThree = 0;
+let runningTotalFour = 0;
 let addedAmount = 0;
 let totalToggleAmount = 0;
 let totalSliderAmountTwo = 0;
@@ -106,154 +338,32 @@ nextBtn.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.id == "b_one") {
       console.log("it worked");
-
-      userAmount = document.getElementById("user_input").value;
+      userAmount = document.getElementById("count").value;
       console.log(userAmount + "this is the user amount");
     } else if (button.id == "b_two_b") {
+      /*
       addedAmount = pageTwoMath(
         rangesliderOne.value,
         rangesliderTwo.value,
         rangesliderThree.value
-      );
-
-      let runningTotalScreenThree = document.getElementById(
-        "screen_three_running_total"
-      );
-      runningTotalScreenThree.innerHTML = runningTotal.toLocaleString("en-US");
-
-      console.log(runningTotal, "this is the runningTotal NEW");
+      ); */
+      Call();
+      combinedTotalOne = runningTotalTwo += runningTotal;
+      runningTotalScreenFour.innerHTML =
+        combinedTotalOne.toLocaleString("en-US");
     } else if (button.id == "b_three_b") {
-      let isChecked_One = document.getElementById("switch_one");
-      console.log(isChecked_One.checked);
-
-      let isChecked_Two = document.getElementById("switch_two");
-      console.log(isChecked_Two.checked);
-
-      let isChecked_Three = document.getElementById("switch_three");
-      console.log(isChecked_Three.checked);
-
-      let isChecked_Four = document.getElementById("switch_four");
-      console.log(isChecked_Four.checked);
-
-      let isChecked_One_Amount = 0;
-      let isChecked_Two_Amount = 0;
-      let isChecked_Three_Amount = 0;
-      let isChecked_Four_Amount = 0;
-
-      if (isChecked_One.checked == false) {
-        isChecked_One_Amount = 0;
-      } else {
-        isChecked_One_Amount = runningTotal;
-      }
-
-      if (isChecked_Two.checked == false) {
-        isChecked_Two_Amount = -10000;
-      } else {
-        isChecked_Two_Amount = runningTotal;
-      }
-
-      if (isChecked_Three.checked == false) {
-        isChecked_Three_Amount = -3000;
-      } else {
-        isChecked_Three_Amount = runningTotal;
-      }
-
-      if (isChecked_Four.checked == false) {
-        isChecked_Four_Amount = 0;
-      } else {
-        isChecked_Four_Amount = runningTotal;
-      }
-
-      console.log(
-        isChecked_One_Amount,
-        isChecked_Two_Amount,
-        isChecked_Three_Amount,
-        isChecked_Four_Amount
-      );
-
-      totalToggleAmount = pageThreeMath(
-        isChecked_One_Amount,
-        isChecked_Two_Amount,
-        isChecked_Three_Amount,
-        isChecked_Four_Amount
-      );
-
-      console.log(runningTotal, "this is the runningTotal NEWWWWW");
-      let runningTotalScreenFour = document.getElementById(
-        "screen_four_running_total"
-      );
-      runningTotalScreenFour.innerHTML = runningTotal.toLocaleString("en-US");
+      Call_Two();
+      combinedTotalTwo = runningTotalThree += runningTotalTwo;
+      runningTotalScreenFive.innerHTML =
+        combinedTotalTwo.toLocaleString("en-US");
+      console.log(runningTotalTwo, "this is the runningTotal NEW");
     } else if (button.id == "b_four_b") {
-      totalSliderAmountTwo = pageFourMath(
-        rangesliderFour.value,
-        rangesliderFive.value,
-        rangesliderSix.value
-      );
-
-      console.log(runningTotal, "this is the runningTotal NEWESTTT");
-
-      let runningTotalScreenFive = document.getElementById(
-        "screen_five_running_total"
-      );
-      runningTotalScreenFive.innerHTML = runningTotal.toLocaleString("en-US");
-    } else if (button.id == "b_five_b") {
-      var isChecked_Five = document.getElementById("switch_five");
-      console.log(isChecked_Five);
-
-      var isChecked_Six = document.getElementById("switch_six");
-      console.log(isChecked_Six);
-
-      var isChecked_Seven = document.getElementById("switch_seven");
-      console.log(isChecked_Seven);
-
-      var isChecked_Eight = document.getElementById("switch_eight");
-      console.log(isChecked_Eight);
-
-      let isChecked_Five_Amount = 0;
-      let isChecked_Six_Amount = 0;
-      let isChecked_Seven_Amount = 0;
-      let isChecked_Eight_Amount = 0;
-
-      if (isChecked_Five.checked == false) {
-        isChecked_Five_Amount = -10000;
-      } else {
-        isChecked_Five_Amount = runningTotal;
-      }
-
-      if (isChecked_Six.checked == false) {
-        isChecked_Six_Amount = -10000;
-      } else {
-        isChecked_Six_Amount = runningTotal;
-      }
-
-      if (isChecked_Seven.checked == false) {
-        isChecked_Seven_Amount = 0;
-      } else {
-        isChecked_Seven_Amount = runningTotal;
-      }
-
-      if (isChecked_Eight.checked == false) {
-        isChecked_Eight_Amount = 0;
-      } else {
-        isChecked_Eight_Amount = runningTotal;
-      }
-
-      totalToggleAmountTwo = pageFiveMath(
-        isChecked_Five_Amount,
-        isChecked_Six_Amount,
-        isChecked_Seven_Amount,
-        isChecked_Eight_Amount
-      );
-
-      console.log(runningTotal, "this is the runningTotal NEWWWWW");
-      let finalYourEstimate = document.getElementById("your_estimate_styling");
-      finalYourEstimate.innerHTML = userAmount;
-
-      let finalOurEstimate = document.getElementById("our_estimate_styling");
-      let finalOurEstimate_rounded = roundNearest100(runningTotal);
-      let finalOurEstimate_tostring =
-        finalOurEstimate_rounded.toLocaleString("en-US");
-      finalOurEstimate.innerHTML = finalOurEstimate_tostring;
+      Call_Three();
+      combinedTotalThree = runningTotalFour += runningTotalThree;
+      runningTotalScreenSix.innerHTML =
+        combinedTotalThree.toLocaleString("en-US");
+      console.log(runningTotalThree, "this is the runningTotal NEW");
+      Call_Four();
     } else {
       console.log("no button id found");
     }
@@ -266,13 +376,13 @@ nextBtn.forEach((button) => {
 prevBtn.forEach((button) => {
   button.addEventListener("click", () => {
     if (button.id == "b_three_a") {
-      subtractAmount = pageTwoMathSubtract(addedAmount);
+      subtractAmount = pageTwoMathSubtract(runningTotal);
     } else if (button.id == "b_four_a") {
-      subtractToggleAmount = pageThreeMathSubtract(pageThreeTotal);
+      subtractToggleAmount = pageThreeMathSubtract(runningTotalTwo);
     } else if (button.id == "b_five_a") {
-      subtractSliderAmountTwo = pageFourMathSubtract(pageFourTotal);
+      subtractSliderAmountTwo = pageFourMathSubtract(runningTotalThree);
     } else if (button.id == "b_six_a") {
-      subtractToggleAmountTwo = pageFiveMathSubtract(pageFiveTotal);
+      subtractToggleAmountTwo = pageFiveMathSubtract(runningTotalFour);
     }
     changesStep("previous");
   });
@@ -310,73 +420,101 @@ function changesStep(btn) {
 
 /*FUNCTIONS FOR KEEPING TRACK OF RUNNING TOTAL*/
 function pageTwoMath(basicScreens, dataEntities, complexScreens) {
+  pageTwoTotal = 0;
+  runningTotal = 0;
   pageTwoTotal =
     basicScreens * 800 + dataEntities * 1000 + complexScreens * 5000;
+
+  console.log(pageTwoTotal);
+  console.log(runningTotal);
 
   runningTotal = Math.round(10 * runningTotal) / 10;
   runningTotal += pageTwoTotal;
   console.log("ROUNDED" + runningTotal);
+  console.log(runningTotal);
   return roundNearest10(runningTotal);
 }
 
 function pageThreeMath(hipaa, pci, gdpr, ada) {
+  pageThreeTotal = 0;
+  runningTotalTwo = 0;
+  runningTotalTwo += runningTotal;
+  console.log(hipaa);
+  console.log(pci);
+  console.log(gdpr);
+  console.log(ada);
+  console.log("RUNNNINININNI" + runningTotal);
+  //Right here, I have the gdpr adding on the existing runningTotal, + an extra 3k
+
   pageThreeTotal = hipaa * 0.08 + (pci + 10000) + (gdpr + 3000) + ada * 0.08;
 
-  runningTotal = Math.round(10 * runningTotal) / 10;
-  runningTotal += pageThreeTotal;
-  console.log("ROUNDED" + runningTotal);
-  return roundNearest10(runningTotal);
+  runningTotalTwo = Math.round(10 * runningTotalTwo) / 10;
+  runningTotalTwo += pageThreeTotal;
+  console.log("ROUNDED" + runningTotalTwo);
+  return roundNearest10(runningTotalTwo);
 }
 
 function pageFourMath(roles, calcs, workflows) {
-  pageFourTotal =
-    runningTotal * 0.04 * roles +
-    runningTotal * 0.06 * calcs +
-    runningTotal * 0.12 * workflows;
+  pageFourTotal = 0;
+  runningTotalThree = 0;
+  runningTotalThree += runningTotalTwo;
 
-  runningTotal = Math.round(10 * runningTotal) / 10;
-  runningTotal += pageFourTotal;
-  console.log("ROUNDED" + runningTotal);
-  return roundNearest10(runningTotal);
+  pageFourTotal =
+    runningTotalThree * 0.04 * roles +
+    runningTotalThree * 0.06 * calcs +
+    runningTotalThree * 0.12 * workflows;
+
+  runningTotalThree = Math.round(10 * runningTotalThree) / 10;
+  runningTotalThree += pageFourTotal;
+  console.log("ROUNDED" + runningTotalThree);
+  return roundNearest10(runningTotalThree);
 }
 
 function pageFiveMath(webApp, mobileApp, ios, android) {
+  pageFiveTotal = 0;
+  runningTotalFour = 0;
+  runningTotalFour += runningTotalThree;
+
   pageFiveTotal =
     webApp + 10000 + mobileApp + 10000 + ios * 0.08 + android * 0.08;
 
-  runningTotal = Math.round(10 * runningTotal) / 10;
-  runningTotal += pageFiveTotal;
-  console.log("ROUNDED" + runningTotal);
-  return roundNearest10(runningTotal);
+  runningTotalFour = Math.round(10 * runningTotalFour) / 10;
+  runningTotalFour += pageFiveTotal;
+  console.log("ROUNDED" + runningTotalFour);
+  return roundNearest10(runningTotalFour);
 }
 
 /*"PREVIOUS" SCREEN SUBTRACTION FUNCTIONS*/
 function pageTwoMathSubtract(amountOne) {
   let pageTwoTotalSubtract = amountOne;
 
-  runningTotal -= pageTwoTotalSubtract;
+  //pageTwoMathSubtract is runningTotal
+  runningTotalTwo -= pageTwoTotalSubtract;
   return runningTotal;
 }
 
 function pageThreeMathSubtract(amountTwo) {
   let pageThreeTotalSubtract = amountTwo;
 
-  runningTotal -= pageThreeTotalSubtract;
-  return runningTotal;
+  //pageTwoMathSubtract is runningTotalTwo
+  runningTotalThree -= pageThreeTotalSubtract;
+  return runningTotalTwo;
 }
 
 function pageFourMathSubtract(amountThree) {
   let pageFourTotalSubtract = amountThree;
 
-  runningTotal -= pageFourTotalSubtract;
-  return runningTotal;
+  //pageTwoMathSubtract is runningTotalThree
+  runningTotalFour -= pageFourTotalSubtract;
+  return runningTotalThree;
 }
 
 function pageFiveMathSubtract(amountFour) {
   let pageFiveTotalSubtract = amountFour;
 
-  runningTotal -= pageFiveTotalSubtract;
-  return runningTotal;
+  //pageTwoMathSubtract is runningTotalFour
+  runningTotalFour -= pageFiveTotalSubtract;
+  return runningTotalFour;
 }
 
 /*TOGGLES*/

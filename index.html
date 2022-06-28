@@ -1074,6 +1074,22 @@
                       document.getElementById(
                         "label-android-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
                       ).style.display = "none";
+
+                      document.getElementById(
+                        "amount_client_estimated-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-amount_client_estimated-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "amount_calc_estimated-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
+
+                      document.getElementById(
+                        "label-amount_calc_estimated-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).style.display = "none";
                     },
                     onFormSubmit: function ($form, ctx) {
                       document.getElementById(
@@ -1131,6 +1147,14 @@
                       document.getElementById(
                         "android-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
                       ).value = isChecked_Eight.checked;
+
+                      document.getElementById(
+                        "amount_client_estimated-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = userAmount;
+
+                      document.getElementById(
+                        "amount_calc_estimated-f43806b6-2e2d-4e9c-98f0-6948826f5a99"
+                      ).value = runningTotalFour.toLocaleString("en-US");
                     },
                   });
                 </script>
